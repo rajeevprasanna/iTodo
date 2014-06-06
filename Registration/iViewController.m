@@ -8,7 +8,6 @@
 
 #import "iViewController.h"
 #import "iValidationViewController.h"
-#import "iHomepageViewController.h"
 @interface iViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
@@ -50,8 +49,6 @@
     iv.password=[load objectForKey:@"password"];
     iv.email=[load objectForKey:@"email"];
     
-    iHomepageViewController *ih=[[iHomepageViewController alloc]init];
-    ih.username1=[load objectForKey:@"username"];
     
     
     

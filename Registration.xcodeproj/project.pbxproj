@@ -21,12 +21,11 @@
 		F30B88D7193E8ACC0069FCCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B88B9193E8ACC0069FCCE /* UIKit.framework */; };
 		F30B88DF193E8ACC0069FCCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F30B88DD193E8ACC0069FCCE /* InfoPlist.strings */; };
 		F30B88E1193E8ACC0069FCCE /* RegistrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B88E0193E8ACC0069FCCE /* RegistrationTests.m */; };
-		F30B88EF193E9EA80069FCCE /* Registration.xcodeproj in Sources */ = {isa = PBXBuildFile; fileRef = F30B88EE193E9EA80069FCCE /* Registration.xcodeproj */; };
-		F30B88F2193FE2310069FCCE /* iHomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B88F1193FE2310069FCCE /* iHomepageViewController.m */; };
 		F30B890719411AD50069FCCE /* iLandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B890619411AD50069FCCE /* iLandingViewController.m */; };
 		F30B890A19411B2D0069FCCE /* launch-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B890919411B2D0069FCCE /* launch-logo@2x.png */; };
 		F30B890C194124C40069FCCE /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B890B194124C40069FCCE /* test.png */; };
 		F30B890E194125C70069FCCE /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B890D194125C70069FCCE /* launch@2x.png */; };
+		F30B89631941356D0069FCCE /* iValidationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B89621941356D0069FCCE /* iValidationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,15 +58,13 @@
 		F30B88DC193E8ACC0069FCCE /* RegistrationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RegistrationTests-Info.plist"; sourceTree = "<group>"; };
 		F30B88DE193E8ACC0069FCCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F30B88E0193E8ACC0069FCCE /* RegistrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationTests.m; sourceTree = "<group>"; };
-		F30B88ED193E9EA80069FCCE /* iValidationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iValidationViewController.h; path = ../iValidationViewController.h; sourceTree = "<group>"; };
-		F30B88EE193E9EA80069FCCE /* Registration.xcodeproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "wrapper.pb-project"; name = Registration.xcodeproj; path = /Users/srikanth/Desktop/Registration/Registration.xcodeproj; sourceTree = "<absolute>"; };
-		F30B88F0193FE2310069FCCE /* iHomepageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iHomepageViewController.h; sourceTree = "<group>"; };
-		F30B88F1193FE2310069FCCE /* iHomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iHomepageViewController.m; sourceTree = "<group>"; };
 		F30B890519411AD50069FCCE /* iLandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iLandingViewController.h; sourceTree = "<group>"; };
 		F30B890619411AD50069FCCE /* iLandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iLandingViewController.m; sourceTree = "<group>"; };
 		F30B890919411B2D0069FCCE /* launch-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-logo@2x.png"; sourceTree = "<group>"; };
 		F30B890B194124C40069FCCE /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		F30B890D194125C70069FCCE /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x.png"; sourceTree = "<group>"; };
+		F30B89611941356D0069FCCE /* iValidationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iValidationViewController.h; sourceTree = "<group>"; };
+		F30B89621941356D0069FCCE /* iValidationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iValidationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +129,8 @@
 				F30B88C7193E8ACC0069FCCE /* Main.storyboard */,
 				F30B88CA193E8ACC0069FCCE /* iViewController.h */,
 				F30B88CB193E8ACC0069FCCE /* iViewController.m */,
-				F30B88ED193E9EA80069FCCE /* iValidationViewController.h */,
-				F30B88EE193E9EA80069FCCE /* Registration.xcodeproj */,
-				F30B88F0193FE2310069FCCE /* iHomepageViewController.h */,
-				F30B88F1193FE2310069FCCE /* iHomepageViewController.m */,
+				F30B89611941356D0069FCCE /* iValidationViewController.h */,
+				F30B89621941356D0069FCCE /* iValidationViewController.m */,
 				F30B890519411AD50069FCCE /* iLandingViewController.h */,
 				F30B890619411AD50069FCCE /* iLandingViewController.m */,
 				F30B890F194127620069FCCE /* images */,
@@ -286,10 +281,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F30B88C6193E8ACC0069FCCE /* iAppDelegate.m in Sources */,
+				F30B89631941356D0069FCCE /* iValidationViewController.m in Sources */,
 				F30B890719411AD50069FCCE /* iLandingViewController.m in Sources */,
-				F30B88EF193E9EA80069FCCE /* Registration.xcodeproj in Sources */,
 				F30B88C2193E8ACC0069FCCE /* main.m in Sources */,
-				F30B88F2193FE2310069FCCE /* iHomepageViewController.m in Sources */,
 				F30B88CC193E8ACC0069FCCE /* iViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
