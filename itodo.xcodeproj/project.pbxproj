@@ -33,6 +33,7 @@
 		F3D127A81941D1DE0034DDDD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A71941D1DE0034DDDD /* Images.xcassets */; };
 		F3D127AA1941D2BD0034DDDD /* launch-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A91941D2BD0034DDDD /* launch-logo@2x.png */; };
 		F3D127AC1941D43D0034DDDD /* register_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127AB1941D43D0034DDDD /* register_bg@2x.png */; };
+		F3D127B01942003F0034DDDD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D127AF1942003F0034DDDD /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		F3D127A71941D1DE0034DDDD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F3D127A91941D2BD0034DDDD /* launch-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-logo@2x.png"; sourceTree = "<group>"; };
 		F3D127AB1941D43D0034DDDD /* register_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_bg@2x.png"; sourceTree = "<group>"; };
+		F3D127AF1942003F0034DDDD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuartzCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D127B01942003F0034DDDD /* QuartzCore.framework in Frameworks */,
 				F30B8922194130420069FCCE /* CoreGraphics.framework in Frameworks */,
 				F30B8924194130420069FCCE /* UIKit.framework in Frameworks */,
 				F30B8920194130420069FCCE /* Foundation.framework in Frameworks */,
@@ -128,6 +131,7 @@
 		F30B891E194130420069FCCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3D127AF1942003F0034DDDD /* QuartzCore.framework */,
 				F30B891F194130420069FCCE /* Foundation.framework */,
 				F30B8921194130420069FCCE /* CoreGraphics.framework */,
 				F30B8923194130420069FCCE /* UIKit.framework */,
@@ -454,6 +458,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
 				INFOPLIST_FILE = "itodo/itodo-Info.plist";
@@ -467,6 +475,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
 				INFOPLIST_FILE = "itodo/itodo-Info.plist";

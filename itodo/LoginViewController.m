@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.userTextField becomeFirstResponder];
     // Do any additional setup after loading the view
     
     
@@ -52,14 +53,14 @@
     if([_userTextField.text isEqualToString:username]
        && [_passwordTextField.text isEqualToString:password])
     {
-        UIAlertView *view= [[UIAlertView alloc]initWithTitle:@"login Successful" message:@"Welcome" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil, nil  ];
+        UIAlertView *view= [[UIAlertView alloc]initWithTitle:@"Login Successful" message:@"Welcome" delegate:self cancelButtonTitle:@"Get Started!" otherButtonTitles:nil, nil  ];
         [view show];
         [self move];
         
         
     }
     else{
-        UIAlertView *view= [[UIAlertView alloc]initWithTitle:@"login failed" message:@"Please Enter valid details" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil, nil  ];
+        UIAlertView *view= [[UIAlertView alloc]initWithTitle:@"Login Failed" message:@"Invalid username or password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil  ];
         [view show];
         
         
