@@ -30,7 +30,7 @@
         iv.email=self.email.text;
         [self presentViewController:iv animated:YES completion:nil];
         
-        UIAlertView *msg=[[UIAlertView alloc] initWithTitle:@"user Created" message:@"Registered Successfully" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
+        UIAlertView *msg=[[UIAlertView alloc] initWithTitle:@"Registration is Successfull" message:@"Now you can access the app " delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
         [msg show];
     }
     else
