@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F30B8920194130420069FCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B891F194130420069FCCE /* Foundation.framework */; };
+		F30B8922194130420069FCCE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8921194130420069FCCE /* CoreGraphics.framework */; };
+		F30B8924194130420069FCCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8923194130420069FCCE /* UIKit.framework */; };
+		F30B892A194130420069FCCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F30B8928194130420069FCCE /* InfoPlist.strings */; };
+		F30B892C194130420069FCCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B892B194130420069FCCE /* main.m */; };
+		F30B8930194130420069FCCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B892F194130420069FCCE /* AppDelegate.m */; };
+		F30B8933194130420069FCCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30B8931194130420069FCCE /* Main.storyboard */; };
+		F30B8936194130420069FCCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B8935194130420069FCCE /* ViewController.m */; };
+		F30B893F194130420069FCCE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B893E194130420069FCCE /* XCTest.framework */; };
+		F30B8940194130420069FCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B891F194130420069FCCE /* Foundation.framework */; };
+		F30B8941194130420069FCCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8923194130420069FCCE /* UIKit.framework */; };
+		F30B8949194130420069FCCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F30B8947194130420069FCCE /* InfoPlist.strings */; };
+		F30B894B194130420069FCCE /* itodoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B894A194130420069FCCE /* itodoTests.m */; };
+		F30B896619413AA80069FCCE /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B896519413AA80069FCCE /* RegisterViewController.m */; };
+		F30B896919413B720069FCCE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B896819413B720069FCCE /* LoginViewController.m */; };
+		F30B896C19413D300069FCCE /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B896B19413D300069FCCE /* HomepageViewController.m */; };
+		F30B8972194141CA0069FCCE /* MoveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B896D194141CA0069FCCE /* MoveButton.png */; };
+		F30B8973194141CA0069FCCE /* MoveButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B896E194141CA0069FCCE /* MoveButton@2x.png */; };
+		F30B8974194141CA0069FCCE /* launch-logo@2x_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B896F194141CA0069FCCE /* launch-logo@2x_2.png */; };
+		F30B8975194141CA0069FCCE /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B8970194141CA0069FCCE /* default.png */; };
+		F30B8976194141CA0069FCCE /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B8971194141CA0069FCCE /* default@2x.png */; };
+		F3D127A4194155930034DDDD /* typing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A3194155930034DDDD /* typing@2x.png */; };
+		F3D127A61941CD0F0034DDDD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A51941CD0F0034DDDD /* button_bg.png */; };
+		F3D127A81941D1DE0034DDDD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A71941D1DE0034DDDD /* Images.xcassets */; };
+		F3D127AA1941D2BD0034DDDD /* launch-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A91941D2BD0034DDDD /* launch-logo@2x.png */; };
+		F3D127AC1941D43D0034DDDD /* register_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127AB1941D43D0034DDDD /* register_bg@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F30B8942194130420069FCCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F30B8914194130420069FCCE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F30B891B194130420069FCCE;
+			remoteInfo = itodo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F30B891C194130420069FCCE /* itodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30B891F194130420069FCCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F30B8921194130420069FCCE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F30B8923194130420069FCCE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F30B8927194130420069FCCE /* itodo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "itodo-Info.plist"; sourceTree = "<group>"; };
+		F30B8929194130420069FCCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F30B892B194130420069FCCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F30B892D194130420069FCCE /* itodo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "itodo-Prefix.pch"; sourceTree = "<group>"; };
+		F30B892E194130420069FCCE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F30B892F194130420069FCCE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F30B8932194130420069FCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F30B8934194130420069FCCE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F30B8935194130420069FCCE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F30B893D194130420069FCCE /* itodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30B893E194130420069FCCE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F30B8946194130420069FCCE /* itodoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "itodoTests-Info.plist"; sourceTree = "<group>"; };
+		F30B8948194130420069FCCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F30B894A194130420069FCCE /* itodoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = itodoTests.m; sourceTree = "<group>"; };
+		F30B896419413AA80069FCCE /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		F30B896519413AA80069FCCE /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		F30B896719413B720069FCCE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		F30B896819413B720069FCCE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		F30B896A19413D300069FCCE /* HomepageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageViewController.h; sourceTree = "<group>"; };
+		F30B896B19413D300069FCCE /* HomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
+		F30B896D194141CA0069FCCE /* MoveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoveButton.png; sourceTree = "<group>"; };
+		F30B896E194141CA0069FCCE /* MoveButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MoveButton@2x.png"; sourceTree = "<group>"; };
+		F30B896F194141CA0069FCCE /* launch-logo@2x_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-logo@2x_2.png"; sourceTree = "<group>"; };
+		F30B8970194141CA0069FCCE /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		F30B8971194141CA0069FCCE /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		F3D127A3194155930034DDDD /* typing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typing@2x.png"; sourceTree = "<group>"; };
+		F3D127A51941CD0F0034DDDD /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
+		F3D127A71941D1DE0034DDDD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F3D127A91941D2BD0034DDDD /* launch-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-logo@2x.png"; sourceTree = "<group>"; };
+		F3D127AB1941D43D0034DDDD /* register_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_bg@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F30B8919194130420069FCCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30B8922194130420069FCCE /* CoreGraphics.framework in Frameworks */,
+				F30B8924194130420069FCCE /* UIKit.framework in Frameworks */,
+				F30B8920194130420069FCCE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30B893A194130420069FCCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30B893F194130420069FCCE /* XCTest.framework in Frameworks */,
+				F30B8941194130420069FCCE /* UIKit.framework in Frameworks */,
+				F30B8940194130420069FCCE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F30B8913194130420069FCCE = {
+			isa = PBXGroup;
+			children = (
+				F30B8925194130420069FCCE /* itodo */,
+				F30B8944194130420069FCCE /* itodoTests */,
+				F30B891E194130420069FCCE /* Frameworks */,
+				F30B891D194130420069FCCE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F30B891D194130420069FCCE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F30B891C194130420069FCCE /* itodo.app */,
+				F30B893D194130420069FCCE /* itodoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F30B891E194130420069FCCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F30B891F194130420069FCCE /* Foundation.framework */,
+				F30B8921194130420069FCCE /* CoreGraphics.framework */,
+				F30B8923194130420069FCCE /* UIKit.framework */,
+				F30B893E194130420069FCCE /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F30B8925194130420069FCCE /* itodo */ = {
+			isa = PBXGroup;
+			children = (
+				F30B892E194130420069FCCE /* AppDelegate.h */,
+				F30B892F194130420069FCCE /* AppDelegate.m */,
+				F30B8934194130420069FCCE /* ViewController.h */,
+				F30B8935194130420069FCCE /* ViewController.m */,
+				F30B8931194130420069FCCE /* Main.storyboard */,
+				F30B896A19413D300069FCCE /* HomepageViewController.h */,
+				F30B896B19413D300069FCCE /* HomepageViewController.m */,
+				F3D127AD1941E76D0034DDDD /* Registration */,
+				F3D127AE1941E77F0034DDDD /* Login */,
+				F3D127A71941D1DE0034DDDD /* Images.xcassets */,
+				F3D127A219414BC10034DDDD /* images */,
+				F3D127A51941CD0F0034DDDD /* button_bg.png */,
+				F30B8926194130420069FCCE /* Supporting Files */,
+			);
+			path = itodo;
+			sourceTree = "<group>";
+		};
+		F30B8926194130420069FCCE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F30B8927194130420069FCCE /* itodo-Info.plist */,
+				F30B8928194130420069FCCE /* InfoPlist.strings */,
+				F30B892B194130420069FCCE /* main.m */,
+				F30B892D194130420069FCCE /* itodo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F30B8944194130420069FCCE /* itodoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F30B894A194130420069FCCE /* itodoTests.m */,
+				F30B8945194130420069FCCE /* Supporting Files */,
+			);
+			path = itodoTests;
+			sourceTree = "<group>";
+		};
+		F30B8945194130420069FCCE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F30B8946194130420069FCCE /* itodoTests-Info.plist */,
+				F30B8947194130420069FCCE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F3D127A219414BC10034DDDD /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F3D127A3194155930034DDDD /* typing@2x.png */,
+				F30B896D194141CA0069FCCE /* MoveButton.png */,
+				F30B896E194141CA0069FCCE /* MoveButton@2x.png */,
+				F3D127AB1941D43D0034DDDD /* register_bg@2x.png */,
+				F30B896F194141CA0069FCCE /* launch-logo@2x_2.png */,
+				F30B8970194141CA0069FCCE /* default.png */,
+				F30B8971194141CA0069FCCE /* default@2x.png */,
+				F3D127A91941D2BD0034DDDD /* launch-logo@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		F3D127AD1941E76D0034DDDD /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				F30B896419413AA80069FCCE /* RegisterViewController.h */,
+				F30B896519413AA80069FCCE /* RegisterViewController.m */,
+			);
+			name = Registration;
+			sourceTree = "<group>";
+		};
+		F3D127AE1941E77F0034DDDD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F30B896719413B720069FCCE /* LoginViewController.h */,
+				F30B896819413B720069FCCE /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F30B891B194130420069FCCE /* itodo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F30B894E194130420069FCCE /* Build configuration list for PBXNativeTarget "itodo" */;
+			buildPhases = (
+				F30B8918194130420069FCCE /* Sources */,
+				F30B8919194130420069FCCE /* Frameworks */,
+				F30B891A194130420069FCCE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = itodo;
+			productName = itodo;
+			productReference = F30B891C194130420069FCCE /* itodo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F30B893C194130420069FCCE /* itodoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F30B8951194130420069FCCE /* Build configuration list for PBXNativeTarget "itodoTests" */;
+			buildPhases = (
+				F30B8939194130420069FCCE /* Sources */,
+				F30B893A194130420069FCCE /* Frameworks */,
+				F30B893B194130420069FCCE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F30B8943194130420069FCCE /* PBXTargetDependency */,
+			);
+			name = itodoTests;
+			productName = itodoTests;
+			productReference = F30B893D194130420069FCCE /* itodoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F30B8914194130420069FCCE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = xenovus;
+				TargetAttributes = {
+					F30B893C194130420069FCCE = {
+						TestTargetID = F30B891B194130420069FCCE;
+					};
+				};
+			};
+			buildConfigurationList = F30B8917194130420069FCCE /* Build configuration list for PBXProject "itodo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F30B8913194130420069FCCE;
+			productRefGroup = F30B891D194130420069FCCE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F30B891B194130420069FCCE /* itodo */,
+				F30B893C194130420069FCCE /* itodoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F30B891A194130420069FCCE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3D127AC1941D43D0034DDDD /* register_bg@2x.png in Resources */,
+				F3D127AA1941D2BD0034DDDD /* launch-logo@2x.png in Resources */,
+				F3D127A4194155930034DDDD /* typing@2x.png in Resources */,
+				F3D127A81941D1DE0034DDDD /* Images.xcassets in Resources */,
+				F30B8972194141CA0069FCCE /* MoveButton.png in Resources */,
+				F30B8976194141CA0069FCCE /* default@2x.png in Resources */,
+				F30B8974194141CA0069FCCE /* launch-logo@2x_2.png in Resources */,
+				F30B8973194141CA0069FCCE /* MoveButton@2x.png in Resources */,
+				F3D127A61941CD0F0034DDDD /* button_bg.png in Resources */,
+				F30B892A194130420069FCCE /* InfoPlist.strings in Resources */,
+				F30B8933194130420069FCCE /* Main.storyboard in Resources */,
+				F30B8975194141CA0069FCCE /* default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30B893B194130420069FCCE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30B8949194130420069FCCE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F30B8918194130420069FCCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30B896C19413D300069FCCE /* HomepageViewController.m in Sources */,
+				F30B8936194130420069FCCE /* ViewController.m in Sources */,
+				F30B8930194130420069FCCE /* AppDelegate.m in Sources */,
+				F30B892C194130420069FCCE /* main.m in Sources */,
+				F30B896619413AA80069FCCE /* RegisterViewController.m in Sources */,
+				F30B896919413B720069FCCE /* LoginViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F30B8939194130420069FCCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F30B894B194130420069FCCE /* itodoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F30B8943194130420069FCCE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F30B891B194130420069FCCE /* itodo */;
+			targetProxy = F30B8942194130420069FCCE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F30B8928194130420069FCCE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F30B8929194130420069FCCE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F30B8931194130420069FCCE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F30B8932194130420069FCCE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F30B8947194130420069FCCE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F30B8948194130420069FCCE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F30B894C194130420069FCCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F30B894D194130420069FCCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F30B894F194130420069FCCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
+				INFOPLIST_FILE = "itodo/itodo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F30B8950194130420069FCCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
+				INFOPLIST_FILE = "itodo/itodo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F30B8952194130420069FCCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/itodo.app/itodo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "itodoTests/itodoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F30B8953194130420069FCCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/itodo.app/itodo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
+				INFOPLIST_FILE = "itodoTests/itodoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F30B8917194130420069FCCE /* Build configuration list for PBXProject "itodo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30B894C194130420069FCCE /* Debug */,
+				F30B894D194130420069FCCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F30B894E194130420069FCCE /* Build configuration list for PBXNativeTarget "itodo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30B894F194130420069FCCE /* Debug */,
+				F30B8950194130420069FCCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F30B8951194130420069FCCE /* Build configuration list for PBXNativeTarget "itodoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30B8952194130420069FCCE /* Debug */,
+				F30B8953194130420069FCCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F30B8914194130420069FCCE /* Project object */;
+}
