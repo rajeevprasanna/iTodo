@@ -9,16 +9,14 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "HomepageViewController.h"
-
-
+#import "NewUser.h"
+#import <Parse/Parse.h>
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
-@synthesize username;
-@synthesize password;
-@synthesize email;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,34 +37,41 @@
     
 }
 
--(IBAction)display{
+/*-(IBAction)display{
     RegisterViewController *vc=[[RegisterViewController alloc]init];
     [vc load];
     self.uname.text=username;
     self.pswd.text=password;
     
     
-}
+}*/
 - (IBAction)login:(id)sender {
-    RegisterViewController *vc=[[RegisterViewController alloc]init];
-    [vc load];
-    if([_userTextField.text isEqualToString:username]
-       && [_passwordTextField.text isEqualToString:password])
-    {
-        UIAlertView *view= [[UIAlertView alloc]initWithTitle:@"Login Successful" message:@"Welcome" delegate:self cancelButtonTitle:@"Get Started!" otherButtonTitles:nil, nil  ];
-        [view show];
-        [self move];
+    [PFUser logInWithUsernameInBackground:self.userTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error){
+        if (!error)
+        {
+            HomepageViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"HomepageViewController"];
+            iv.username1=self.userTextField.text;
+            [self presentViewController:iv animated:YES completion:nil];
+            
+        }
+        else{
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Login Failed" message:@"Invalid Username or Password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
         
         
-    }
-    else{
-        UIAlertView *view= [[UIAlertView alloc]initWithTitle:@"Login Failed" message:@"Invalid username or password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil  ];
-        [view show];
-        
-        
-    }
+    }];
     
 }
+
+    
+
+
+    
+    
+
+    
+
 
 -(void)move{
     HomepageViewController *ih=[self.storyboard instantiateViewControllerWithIdentifier:@"HomepageViewController"];
@@ -75,6 +80,8 @@
     [self presentViewController:ih animated:YES completion:nil];
     
 }
+
+
 
 
 - (void)didReceiveMemoryWarning

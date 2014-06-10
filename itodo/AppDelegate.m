@@ -7,12 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Parse setApplicationId:@"YKdlihipluPF6Pb5LMhpwbiuthoKUa1wUnWNL0TN"
+                  clientKey:@"WzF5Vk0cn0A6Zn8RpM1byOSiBogAwxEWEybDUAog"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+  //  SingleUserTodoList *controller=[[SingleUserTodoList alloc]init];
+   
     return YES;
 }
 							

@@ -7,7 +7,10 @@
 //
 
 #import "RegisterViewController.h"
+#import "HomepageViewController.h"
 #import "LoginViewController.h"
+#import "NewUser.h"
+#import <Parse/Parse.h>
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
@@ -16,23 +19,41 @@
 @end
 
 @implementation RegisterViewController
+
+
+
+
+
+
 -(IBAction)register:(id)sender {
     if(!(([self.username.text isEqual:@""])||([self.password.text isEqual:@""])||([self.email.text isEqual:@""])))
     {
-        NSUserDefaults *save=[NSUserDefaults standardUserDefaults];
-        [save setObject:self.username.text forKey:@"username"];
-        [save setObject:self.password.text forKey:@"password"];
-        [save setObject:self.email.text forKey:@"email"];
+        NSString *emailReg = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+        NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailReg];
         
-        LoginViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        iv.username=self.username.text;
-        iv.password=self.password.text;
-        iv.email=self.email.text;
-        [self presentViewController:iv animated:YES completion:nil];
-        
-        UIAlertView *msg=[[UIAlertView alloc] initWithTitle:@"Registration is Successfull" message:@"Now you can access the app " delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
-        [msg show];
+        if ([emailTest evaluateWithObject:self.email.text] == NO)
+        {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"enter the Valid Mail id" message:@"Please Enter Valid Email Address." delegate:nil cancelButtonTitle:@"okay" otherButtonTitles:nil];
+            [alert show];
+        }
+        else{
+            PFUser *newuser=[PFUser user];
+            newuser.username=self.username.text;
+            newuser.password=self.password.text;
+            newuser.email=self.email.text;
+            [newuser signUpInBackgroundWithBlock:^(BOOL Succeeded, NSError *error){
+                if(!error){
+                    NSLog(@"Success");
+                    HomepageViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"HomepageViewController"];
+                        iv.username1=self.username.text;
+                    [self presentViewController:iv animated:YES completion:nil];
+                }
+            }];
+            
+        }
     }
+    
     else
     {
         
@@ -42,6 +63,26 @@
     }
     
 }
+
+    
+            /* LoginViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        iv.username=self.username.text;
+        iv.password=self.password.text;
+        iv.email=self.email.text;
+        [self presentViewController:iv animated:YES completion:nil];*/
+        
+        
+       /* UIAlertView *msg=[[UIAlertView alloc] initWithTitle:@"Registration is Successfull" message:@"Now you can access the app " delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil, nil];
+        [msg show];*/
+      //  [self performSegueWithIdentifier:@"newUser" sender:self];
+           // HomepageViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"HomepageViewController"];
+           // iv.username=self.username.text;
+           // iv.password=self.password.text;
+            //iv.email=self.email.text;
+          //  [self presentViewController:iv animated:YES completion:nil];
+        
+ 
+
 -(void)load
 {
     NSUserDefaults *load=[NSUserDefaults standardUserDefaults];
@@ -55,6 +96,10 @@
     
 }
 
+
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -62,6 +107,12 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 }
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

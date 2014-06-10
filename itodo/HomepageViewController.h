@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <parse/Parse.h>
 
 @interface HomepageViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *username;
+@property (strong,nonatomic) NSString  *username1;
 - (IBAction)move:(id)sender;
 
 @end

@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *uname;
-@property (weak, nonatomic) IBOutlet UILabel *pswd;
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *email;

@@ -12,6 +12,4 @@
 @property (weak, nonatomic) IBOutlet UIView *launchImage1;
 @property (weak, nonatomic) IBOutlet UIView *fadeout1;
 
-
-
 @end

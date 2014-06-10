@@ -28,12 +28,26 @@
 		F30B8974194141CA0069FCCE /* launch-logo@2x_2.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B896F194141CA0069FCCE /* launch-logo@2x_2.png */; };
 		F30B8975194141CA0069FCCE /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B8970194141CA0069FCCE /* default.png */; };
 		F30B8976194141CA0069FCCE /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F30B8971194141CA0069FCCE /* default@2x.png */; };
+		F359D5BF1943CE5E00476661 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5BE1943CE5E00476661 /* Parse.framework */; };
+		F359D5C11943CE8F00476661 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5C01943CE8F00476661 /* AudioToolbox.framework */; };
+		F359D5C31943CE9A00476661 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5C21943CE9A00476661 /* CFNetwork.framework */; };
+		F359D5C51943CEB400476661 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5C41943CEB400476661 /* CoreLocation.framework */; };
+		F359D5C71943CECE00476661 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5C61943CECE00476661 /* libz.dylib */; };
+		F359D5C91943CEDF00476661 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5C81943CEDF00476661 /* MobileCoreServices.framework */; };
+		F359D5CB1943CEF500476661 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5CA1943CEF500476661 /* QuartzCore.framework */; };
+		F359D5CD1943CF0300476661 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5CC1943CF0300476661 /* Security.framework */; };
+		F359D5CF1943CF1500476661 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5CE1943CF1500476661 /* StoreKit.framework */; };
+		F359D5D11943CF2B00476661 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5D01943CF2B00476661 /* SystemConfiguration.framework */; };
+		F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */; };
+		F39E2CA319468EBA00BD8AFE /* TaskListVIewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E2CA219468EBA00BD8AFE /* TaskListVIewTableViewController.m */; };
 		F3D127A4194155930034DDDD /* typing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A3194155930034DDDD /* typing@2x.png */; };
 		F3D127A61941CD0F0034DDDD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A51941CD0F0034DDDD /* button_bg.png */; };
 		F3D127A81941D1DE0034DDDD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A71941D1DE0034DDDD /* Images.xcassets */; };
 		F3D127AA1941D2BD0034DDDD /* launch-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A91941D2BD0034DDDD /* launch-logo@2x.png */; };
 		F3D127AC1941D43D0034DDDD /* register_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127AB1941D43D0034DDDD /* register_bg@2x.png */; };
 		F3D127B01942003F0034DDDD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D127AF1942003F0034DDDD /* QuartzCore.framework */; };
+		F3D127B2194214760034DDDD /* add_taks.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127B1194214760034DDDD /* add_taks.png */; };
+		F3D127B519428C950034DDDD /* NewUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D127B419428C950034DDDD /* NewUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +90,29 @@
 		F30B896F194141CA0069FCCE /* launch-logo@2x_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-logo@2x_2.png"; sourceTree = "<group>"; };
 		F30B8970194141CA0069FCCE /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		F30B8971194141CA0069FCCE /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		F359D5BE1943CE5E00476661 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../Downloads/Parse.framework; sourceTree = "<group>"; };
+		F359D5C01943CE8F00476661 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F359D5C21943CE9A00476661 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F359D5C41943CEB400476661 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F359D5C61943CECE00476661 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F359D5C81943CEDF00476661 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F359D5CA1943CEF500476661 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F359D5CC1943CF0300476661 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F359D5CE1943CF1500476661 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F359D5D01943CF2B00476661 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTaskViewController.h; path = ../AddTaskViewController.h; sourceTree = "<group>"; };
+		F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTaskViewController.m; path = ../AddTaskViewController.m; sourceTree = "<group>"; };
+		F39E2CA119468EBA00BD8AFE /* TaskListVIewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListVIewTableViewController.h; sourceTree = "<group>"; };
+		F39E2CA219468EBA00BD8AFE /* TaskListVIewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListVIewTableViewController.m; sourceTree = "<group>"; };
 		F3D127A3194155930034DDDD /* typing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typing@2x.png"; sourceTree = "<group>"; };
 		F3D127A51941CD0F0034DDDD /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
 		F3D127A71941D1DE0034DDDD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F3D127A91941D2BD0034DDDD /* launch-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-logo@2x.png"; sourceTree = "<group>"; };
 		F3D127AB1941D43D0034DDDD /* register_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_bg@2x.png"; sourceTree = "<group>"; };
 		F3D127AF1942003F0034DDDD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuartzCore.framework; sourceTree = "<group>"; };
+		F3D127B1194214760034DDDD /* add_taks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_taks.png; sourceTree = "<group>"; };
+		F3D127B319428C950034DDDD /* NewUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUser.h; sourceTree = "<group>"; };
+		F3D127B419428C950034DDDD /* NewUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +120,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F359D5D11943CF2B00476661 /* SystemConfiguration.framework in Frameworks */,
+				F359D5CF1943CF1500476661 /* StoreKit.framework in Frameworks */,
+				F359D5CD1943CF0300476661 /* Security.framework in Frameworks */,
+				F359D5CB1943CEF500476661 /* QuartzCore.framework in Frameworks */,
+				F359D5C91943CEDF00476661 /* MobileCoreServices.framework in Frameworks */,
+				F359D5C71943CECE00476661 /* libz.dylib in Frameworks */,
+				F359D5C51943CEB400476661 /* CoreLocation.framework in Frameworks */,
+				F359D5C31943CE9A00476661 /* CFNetwork.framework in Frameworks */,
+				F359D5C11943CE8F00476661 /* AudioToolbox.framework in Frameworks */,
 				F3D127B01942003F0034DDDD /* QuartzCore.framework in Frameworks */,
 				F30B8922194130420069FCCE /* CoreGraphics.framework in Frameworks */,
 				F30B8924194130420069FCCE /* UIKit.framework in Frameworks */,
 				F30B8920194130420069FCCE /* Foundation.framework in Frameworks */,
+				F359D5BF1943CE5E00476661 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +172,16 @@
 		F30B891E194130420069FCCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F359D5D01943CF2B00476661 /* SystemConfiguration.framework */,
+				F359D5CE1943CF1500476661 /* StoreKit.framework */,
+				F359D5CC1943CF0300476661 /* Security.framework */,
+				F359D5CA1943CEF500476661 /* QuartzCore.framework */,
+				F359D5C81943CEDF00476661 /* MobileCoreServices.framework */,
+				F359D5C61943CECE00476661 /* libz.dylib */,
+				F359D5C41943CEB400476661 /* CoreLocation.framework */,
+				F359D5C21943CE9A00476661 /* CFNetwork.framework */,
+				F359D5C01943CE8F00476661 /* AudioToolbox.framework */,
+				F359D5BE1943CE5E00476661 /* Parse.framework */,
 				F3D127AF1942003F0034DDDD /* QuartzCore.framework */,
 				F30B891F194130420069FCCE /* Foundation.framework */,
 				F30B8921194130420069FCCE /* CoreGraphics.framework */,
@@ -148,13 +199,16 @@
 				F30B8934194130420069FCCE /* ViewController.h */,
 				F30B8935194130420069FCCE /* ViewController.m */,
 				F30B8931194130420069FCCE /* Main.storyboard */,
+				F39E2CA119468EBA00BD8AFE /* TaskListVIewTableViewController.h */,
+				F39E2CA219468EBA00BD8AFE /* TaskListVIewTableViewController.m */,
 				F30B896A19413D300069FCCE /* HomepageViewController.h */,
 				F30B896B19413D300069FCCE /* HomepageViewController.m */,
+				F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */,
+				F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */,
 				F3D127AD1941E76D0034DDDD /* Registration */,
 				F3D127AE1941E77F0034DDDD /* Login */,
 				F3D127A71941D1DE0034DDDD /* Images.xcassets */,
 				F3D127A219414BC10034DDDD /* images */,
-				F3D127A51941CD0F0034DDDD /* button_bg.png */,
 				F30B8926194130420069FCCE /* Supporting Files */,
 			);
 			path = itodo;
@@ -192,6 +246,8 @@
 		F3D127A219414BC10034DDDD /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F3D127A51941CD0F0034DDDD /* button_bg.png */,
+				F3D127B1194214760034DDDD /* add_taks.png */,
 				F3D127A3194155930034DDDD /* typing@2x.png */,
 				F30B896D194141CA0069FCCE /* MoveButton.png */,
 				F30B896E194141CA0069FCCE /* MoveButton@2x.png */,
@@ -209,6 +265,8 @@
 			children = (
 				F30B896419413AA80069FCCE /* RegisterViewController.h */,
 				F30B896519413AA80069FCCE /* RegisterViewController.m */,
+				F3D127B319428C950034DDDD /* NewUser.h */,
+				F3D127B419428C950034DDDD /* NewUser.m */,
 			);
 			name = Registration;
 			sourceTree = "<group>";
@@ -310,6 +368,7 @@
 				F30B892A194130420069FCCE /* InfoPlist.strings in Resources */,
 				F30B8933194130420069FCCE /* Main.storyboard in Resources */,
 				F30B8975194141CA0069FCCE /* default.png in Resources */,
+				F3D127B2194214760034DDDD /* add_taks.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,12 +387,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D127B519428C950034DDDD /* NewUser.m in Sources */,
 				F30B896C19413D300069FCCE /* HomepageViewController.m in Sources */,
 				F30B8936194130420069FCCE /* ViewController.m in Sources */,
 				F30B8930194130420069FCCE /* AppDelegate.m in Sources */,
 				F30B892C194130420069FCCE /* main.m in Sources */,
+				F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */,
 				F30B896619413AA80069FCCE /* RegisterViewController.m in Sources */,
 				F30B896919413B720069FCCE /* LoginViewController.m in Sources */,
+				F39E2CA319468EBA00BD8AFE /* TaskListVIewTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +523,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/srikanth/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
@@ -478,6 +541,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/srikanth/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
