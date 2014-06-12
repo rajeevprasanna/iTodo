@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 
 @interface TaskListVIewTableViewController ()
+@property (strong, nonatomic) IBOutlet UIView *actionView;
 
 @end
 
@@ -27,20 +28,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView reloadData];
+
+    self.actionView.hidden=YES;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    PFObject *load=[[PFObject alloc]initWithClassName:@"SingleUsertodoList"];
-    NSString *task=[load objectForKey:@"task"];
-    NSLog(@"%@",task);
-    NSString *date=[load objectForKey:@"date"];
-    NSString *priority=[load objectForKey:@"priority"];
-    [self.list addObject:task];
-    [self.list addObject:date];
-    [self.list addObject:priority];
+    PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.list=[objects mutableCopy];
+            [self.tableView reloadData];
+         //   [self performSelector:@selector(addTaskButtonPressed) withObject:nil afterDelay:2];
+        
+            self.tableView.scrollEnabled=YES;
+            }
+    }];
+    
+    
+    
     
     
     
@@ -67,7 +76,7 @@
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
     
-    return [_list count];
+    return [self.list count];
 }
 
 
@@ -76,21 +85,33 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text=[self.list objectAtIndex:indexPath.row];
+    PFObject *listData=[self.list objectAtIndex:indexPath.row];
+    cell.textLabel.text=listData[@"task"];
+    
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"Priority:%@",listData[@"priority"]];
+    
     return cell;
 }
 
 
-/*
+- (void)        tableView:(UITableView *)tableView
+  didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.actionView.hidden=NO;
+    
+    }
+    
+
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -101,7 +122,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -130,4 +151,7 @@
 }
 */
 
+- (IBAction)addTaskButtonPressed:(id)sender {
+    
+}
 @end

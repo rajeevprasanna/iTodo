@@ -27,7 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
+    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    [datePicker setDate:[NSDate date]];
+    [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+    [self.dateTextField setInputView:datePicker];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,14 +52,23 @@
 }
 */
 
+-(void)updateTextField:(id)sender
+{
+    UIDatePicker *picker = (UIDatePicker*)self.dateTextField.inputView;
+    self.dateTextField.text = [NSString stringWithFormat:@"%@",picker.date];
+}
+
 - (IBAction)save:(id)sender {
+     NSNumber  *aNum = [NSNumber numberWithInteger: [self.priority.text integerValue]];
     
-    PFObject *add=[[PFObject alloc]initWithClassName:@"SingleUserTodoList"];
+    PFObject *add=[[PFObject alloc]initWithClassName:@"TaskList"];
     
     [add setObject:_task.text forKey:@"task"];
-    [add setObject:_date.text  forKey:@"date"];
-    [add setObject:_priority.text forKey:@"priority"];
+    [add setObject:_dateTextField.text  forKey:@"date"];
+    [add setObject:aNum forKey:@"priority"];
     [add  saveInBackground];
+    
+    
 
 }
 

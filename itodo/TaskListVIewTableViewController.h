@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TaskListVIewTableViewController : UITableViewController
+@interface TaskListVIewTableViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 @property (strong,nonatomic) NSMutableArray *list;
+@property (strong,nonatomic) UITableView *myView;
+- (IBAction)addTaskButtonPressed:(id)sender;
 @end

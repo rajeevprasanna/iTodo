@@ -28,6 +28,7 @@
     [super viewDidLoad];
     
     self.username.text=_username1;
+    
 }
 
 

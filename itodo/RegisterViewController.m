@@ -9,7 +9,6 @@
 #import "RegisterViewController.h"
 #import "HomepageViewController.h"
 #import "LoginViewController.h"
-#import "NewUser.h"
 #import <Parse/Parse.h>
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
@@ -48,6 +47,10 @@
                     HomepageViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"HomepageViewController"];
                         iv.username1=self.username.text;
                     [self presentViewController:iv animated:YES completion:nil];
+                }
+                else{
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Registration Failed" message:@"Username already exist" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
                 }
             }];
             

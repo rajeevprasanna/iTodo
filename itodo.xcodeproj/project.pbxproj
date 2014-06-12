@@ -47,7 +47,6 @@
 		F3D127AC1941D43D0034DDDD /* register_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127AB1941D43D0034DDDD /* register_bg@2x.png */; };
 		F3D127B01942003F0034DDDD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D127AF1942003F0034DDDD /* QuartzCore.framework */; };
 		F3D127B2194214760034DDDD /* add_taks.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127B1194214760034DDDD /* add_taks.png */; };
-		F3D127B519428C950034DDDD /* NewUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D127B419428C950034DDDD /* NewUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,8 +110,6 @@
 		F3D127AB1941D43D0034DDDD /* register_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_bg@2x.png"; sourceTree = "<group>"; };
 		F3D127AF1942003F0034DDDD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuartzCore.framework; sourceTree = "<group>"; };
 		F3D127B1194214760034DDDD /* add_taks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_taks.png; sourceTree = "<group>"; };
-		F3D127B319428C950034DDDD /* NewUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUser.h; sourceTree = "<group>"; };
-		F3D127B419428C950034DDDD /* NewUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,8 +262,6 @@
 			children = (
 				F30B896419413AA80069FCCE /* RegisterViewController.h */,
 				F30B896519413AA80069FCCE /* RegisterViewController.m */,
-				F3D127B319428C950034DDDD /* NewUser.h */,
-				F3D127B419428C950034DDDD /* NewUser.m */,
 			);
 			name = Registration;
 			sourceTree = "<group>";
@@ -387,7 +382,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3D127B519428C950034DDDD /* NewUser.m in Sources */,
 				F30B896C19413D300069FCCE /* HomepageViewController.m in Sources */,
 				F30B8936194130420069FCCE /* ViewController.m in Sources */,
 				F30B8930194130420069FCCE /* AppDelegate.m in Sources */,

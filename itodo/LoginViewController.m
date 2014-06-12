@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "HomepageViewController.h"
-#import "NewUser.h"
+#import "TaskListVIewTableViewController.h"
 #import <Parse/Parse.h>
 @interface LoginViewController ()
 
@@ -49,8 +49,9 @@
     [PFUser logInWithUsernameInBackground:self.userTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error){
         if (!error)
         {
-            HomepageViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"HomepageViewController"];
-            iv.username1=self.userTextField.text;
+            
+            TaskListVIewTableViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"TaskListViewController"];
+          //  iv.username1=self.userTextField.text;
             [self presentViewController:iv animated:YES completion:nil];
             
         }

@@ -11,8 +11,8 @@
 
 @interface AddTaskViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField *task;
-@property (strong, nonatomic) IBOutlet UITextField *date;
 @property (strong, nonatomic) IBOutlet UITextField *priority;
+@property (nonatomic,strong) IBOutlet UITextField *dateTextField;
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
 
