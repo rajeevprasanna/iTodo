@@ -67,6 +67,7 @@
     [add setObject:_dateTextField.text  forKey:@"date"];
     [add setObject:aNum forKey:@"priority"];
     [add  saveInBackground];
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
     
     
 

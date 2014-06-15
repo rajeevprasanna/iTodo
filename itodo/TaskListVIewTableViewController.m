@@ -9,6 +9,7 @@
 #import "TaskListVIewTableViewController.h"
 #import <Parse/Parse.h>
 
+
 @interface TaskListVIewTableViewController ()
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 
@@ -36,21 +37,20 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView reloadData];
+
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.list=[objects mutableCopy];
             [self.tableView reloadData];
-         //   [self performSelector:@selector(addTaskButtonPressed) withObject:nil afterDelay:2];
+            //[self performSelector:@selector(addTaskButtonPressed) withObject:nil afterDelay:2];
         
             self.tableView.scrollEnabled=YES;
+            [self.tableView addSubview:self.actionView];
             }
     }];
-    
-    
-    
-    
     
     
     
@@ -94,10 +94,18 @@
 }
 
 
-- (void)        tableView:(UITableView *)tableView
+- (void)tableView:(UITableView *)tableView
   didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.actionView.hidden=NO;
+ //   UIView* container = [[UIView alloc] initWithFrame:goodRect];
+ //   UITableView* tv = [[UITableView alloc] initWithFrame:tableRect];
+ //   UIButton* btn = [[UIButton alloc] initWithFrame:btnFrame];
     
+  //  [container addSubview:tv];
+   // [container addSubview:btn];
+    
+   // myController.view = container;
+   // [self.tableView addSubview:self.actionView];
+    self.actionView.hidden=NO;
     }
     
 
@@ -105,6 +113,15 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    PFObject *editObject=[PFObject objectWithClassName:@"TaskList"];
+    NSString *ObjectID=editObject.objectId;
+    NSLog(@"ObjectID is:%@",ObjectID);
+    PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
+
+    // Retrieve the object by id
+    
+
+ 
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
@@ -115,13 +132,14 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    PFObject *object = [self.list objectAtIndex:indexPath.row];
+    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [object saveInBackground];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+        [self viewDidLoad];
+    }];
 }
+
 
 
 /*
@@ -152,6 +170,13 @@
 */
 
 - (IBAction)addTaskButtonPressed:(id)sender {
+    
+}
+
+- (IBAction)EditTask:(id)sender {
+  
+        
+    
     
 }
 @end

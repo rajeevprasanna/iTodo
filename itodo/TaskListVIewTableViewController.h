@@ -12,4 +12,5 @@
 @property (strong,nonatomic) NSMutableArray *list;
 @property (strong,nonatomic) UITableView *myView;
 - (IBAction)addTaskButtonPressed:(id)sender;
+- (IBAction)EditTask:(id)sender;
 @end
