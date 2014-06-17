@@ -14,6 +14,7 @@
 @end
 
 @implementation AddTaskViewController
+@synthesize objectId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,14 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.buttonView.hidden=YES;
     
     // Do any additional setup after loading the view.
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDate:[NSDate date]];
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.dateTextField setInputView:datePicker];
+   
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -75,4 +77,5 @@
 
 - (IBAction)cancel:(id)sender {
 }
+
 @end

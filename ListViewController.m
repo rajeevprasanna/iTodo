@@ -1,27 +1,26 @@
 //
-//  TaskListVIewTableViewController.m
+//  ListViewController.m
 //  itodo
 //
-//  Created by ramesh on 10/06/14.
+//  Created by ramesh on 17/06/14.
 //  Copyright (c) 2014 xenovus. All rights reserved.
 //
 
-#import "TaskListVIewTableViewController.h"
+#import "ListViewController.h"
 #import <Parse/Parse.h>
 #import "AddTaskViewController.h"
 
-
-@interface TaskListVIewTableViewController ()
+@interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 @property NSString *objectID;
 
 @end
 
-@implementation TaskListVIewTableViewController
+@implementation ListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -31,27 +30,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tableView reloadData];
-
+    [self.TableView reloadData];
+    
     self.actionView.hidden=YES;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    [self.tableView reloadData];
-
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.TableView reloadData];
+    
+  //  self.navigationItem.rightBarButtonItem = self.editButtonItem;
     PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.list=[objects mutableCopy];
-            [self.tableView reloadData];
+            [self.TableView reloadData];
             //[self performSelector:@selector(addTaskButtonPressed) withObject:nil afterDelay:2];
-        
-            self.tableView.scrollEnabled=YES;
-            [self.tableView addSubview:self.actionView];
-            }
+            
+            self.TableView.scrollEnabled=YES;
+         //   [self.TableView addSubview:self.actionView];
+        }
     }];
     
     
@@ -82,7 +81,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" ]; //forIndexPath:indexPath];
     
     // Configure the cell...
     PFObject *listData=[self.list objectAtIndex:indexPath.row];
@@ -95,18 +94,18 @@
 
 
 - (void)tableView:(UITableView *)tableView
-  didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.actionView.hidden=NO;
     PFObject *edit=[self.list objectAtIndex:indexPath.row];
-    NSString *objectId=edit.objectId;
-    NSLog(@"Object id:%@",objectId);
+    self.objectID=edit.objectId;
+    NSLog(@"Object id:%@",_objectID);
     
     
-    }
-
-    
+}
 
 
+
+/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,17 +113,17 @@
     NSString *ObjectID=edit.objectId;
     NSLog(@"ObjectID is:%@",ObjectID);
     PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
-  //  [self EditTask:ObjectID];
+    //  [self EditTask:ObjectID];
     self.objectID=ObjectID;
     // Retrieve the object by id
     
-
- 
+    
+    
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
-
+*/
 
 
 // Override to support editing the table view.
@@ -141,31 +140,31 @@
 
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)addTaskButtonPressed:(id)sender {
     
@@ -173,16 +172,20 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-        if([segue.identifier isEqualToString:@"edit"])
-        {
-            AddTaskViewController *editTask = segue.destinationViewController;
-            editTask.objectId=self.objectID;
-        }
+    if([segue.identifier isEqualToString:@"edit"])
+    {
+        AddTaskViewController *editTask = segue.destinationViewController;
+        editTask.objectId=self.objectID;
+       // UIAlertView *alert=[[UITableView alloc]initwith]
+    }
 }
 
+
 - (IBAction)EditTask:(id)sender {
-  
+    
     
     
 }
+
+
 @end
