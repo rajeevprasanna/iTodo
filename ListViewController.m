@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 @property NSString *objectID;
 
+
 @end
 
 @implementation ListViewController
@@ -37,15 +38,24 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    [self.TableView reloadData];
     
-  //  self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
+                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = CGPointMake(160, 240);
+    spinner.hidesWhenStopped = YES;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+
+    [self.list removeAllObjects];
+    [self.TableView reloadData];
     PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
+    [query clearCachedResult];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            
             self.list=[objects mutableCopy];
             [self.TableView reloadData];
+            [spinner stopAnimating];
             //[self performSelector:@selector(addTaskButtonPressed) withObject:nil afterDelay:2];
             
             self.TableView.scrollEnabled=YES;
@@ -82,7 +92,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" ]; //forIndexPath:indexPath];
-    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell] ;
+    }
     // Configure the cell...
     PFObject *listData=[self.list objectAtIndex:indexPath.row];
     cell.textLabel.text=listData[@"task"];
@@ -95,6 +107,7 @@
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     self.actionView.hidden=NO;
     PFObject *edit=[self.list objectAtIndex:indexPath.row];
     self.objectID=edit.objectId;
@@ -103,6 +116,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
+
+-(void)clearData
+{
+    [self.list removeAllObjects];
+}
 
 
 /*
@@ -125,7 +143,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 */
 
-
+/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -136,9 +154,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         [self viewDidLoad];
     }];
 }
+*/
 
-
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.TableView reloadData];
+    //[self.list removeAllObjects];
+}
 /*
  // Override to support rearranging the table view.
  - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -167,6 +189,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
  */
 
 - (IBAction)addTaskButtonPressed:(id)sender {
+    [_TableView beginUpdates];
+  //  [UITableView beginUpdates];
+    PFObject *object = [PFObject objectWithoutDataWithClassName:@"TaskList"
+                                                       objectId:_objectID];
+    [object deleteEventually];
+    NSLog(@"task:%@",_objectID);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+    [_TableView endUpdates];
+    [self viewDidLoad];
+    
     
 }
 

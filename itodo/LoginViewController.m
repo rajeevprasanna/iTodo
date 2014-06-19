@@ -10,6 +10,7 @@
 #import "RegisterViewController.h"
 #import "HomepageViewController.h"
 #import "TaskListVIewTableViewController.h"
+#import "ListViewController.h"
 #import <Parse/Parse.h>
 @interface LoginViewController ()
 
@@ -50,7 +51,7 @@
         if (!error)
         {
             
-            TaskListVIewTableViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
+            ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
           //  iv.username1=self.userTextField.text;
             [self presentViewController:iv animated:YES completion:nil];
             

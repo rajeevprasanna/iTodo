@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditTaskViewController : UIViewController
+@interface EditTaskViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDataSource>
 @property (strong, nonatomic) IBOutlet UITextField *task;
 @property (strong, nonatomic) IBOutlet UITextField *priority;
 @property (nonatomic,strong) IBOutlet UITextField *dateTextField;
@@ -18,6 +18,8 @@
 - (IBAction)EditTask:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *buttonView;
 @property (strong, nonatomic) IBOutlet UIView *saveView;
+@property (strong, nonatomic) IBOutlet UIPickerView *myPickerView;
+@property (strong, nonatomic) NSArray *priorities;
 
 
 @end

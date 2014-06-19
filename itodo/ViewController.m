@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
+#import "ListViewController.h"//;
 
 @interface ViewController ()
 
@@ -19,6 +20,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   /* PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        // do stuff with the user
+        ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
+        //iv.username1=self.username.text;
+        [self presentViewController:iv animated:YES completion:nil];
+    }
+    else {*/
+        // show the signup or login screen
+    
+
     // Do any additional setup after loading the view.
     UIImageView *imageLogo = (UIImageView *) [self.view viewWithTag:100];
     imageLogo.image = [UIImage imageNamed:@"launch-logo@2x.png"];
@@ -43,7 +55,7 @@
                         completion:nil];
     }];
     
-       
+    
 }
 
 
