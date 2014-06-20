@@ -18,6 +18,7 @@
 @synthesize objectId;
 @synthesize priorities;
 @synthesize myPickerView;
+@synthesize currentUser;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +52,7 @@
     }
     else{
         self.saveView.hidden=YES;
-        PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
+        PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
         [query getObjectInBackgroundWithId:objectId block:^(PFObject *editTask, NSError *error) {
             // Do something with the returned PFObject in the gameScore variable.
             NSString *task1=[editTask objectForKey:@"task"];
@@ -95,7 +96,7 @@
 - (IBAction)save:(id)sender {
     NSNumber  *aNum = [NSNumber numberWithInteger: [self.priority.text integerValue]];
     
-    PFObject *add=[[PFObject alloc]initWithClassName:@"TaskList"];
+    PFObject *add=[[PFObject alloc]initWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
     
     [add setObject:_task.text forKey:@"task"];
     [add setObject:_dateTextField.text  forKey:@"date"];
@@ -151,8 +152,9 @@
 }
 
 - (IBAction)EditTask:(id)sender {
+    NSLog(@"UserName %@",currentUser);
     
-     PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
+     PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
     [PFQuery clearAllCachedResults];
 
     NSNumber  *aNum = [NSNumber numberWithInteger: [self.priority.text integerValue]];
@@ -166,10 +168,11 @@
         
         [tasklist saveInBackground];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+
         ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
-        //  iv.username1=self.userTextField.text;
+          iv.currentUser=self.currentUser;
         [self presentViewController:iv animated:YES completion:nil];
-        
+
 
         
         

@@ -13,7 +13,9 @@
 
 @property (strong,nonatomic) NSMutableArray *list;
 @property (strong,nonatomic) UITableView *myView;
-- (IBAction)addTaskButtonPressed:(id)sender;
-- (IBAction)EditTask:(id)sender;
+- (IBAction)deleteTask:(id)sender;
 -(void)clearData;
+@property (strong, nonatomic) NSString *currentUser;
+@property (strong, nonatomic) IBOutlet UIView *dropdownView;
+- (IBAction)dropDownButton:(id)sender;
 @end

@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIView *saveView;
 @property (strong, nonatomic) IBOutlet  UIPickerView *myPickerView;
 @property (strong, nonatomic)  NSArray *priorities;
+@property (strong, nonatomic) NSString *currentUser;
 
 @end

@@ -40,8 +40,8 @@
 		F359D5D11943CF2B00476661 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5D01943CF2B00476661 /* SystemConfiguration.framework */; };
 		F35C2F6B194F87410060906E /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F6A194F87410060906E /* ListViewController.m */; };
 		F35C2F71194FCE6B0060906E /* EditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F70194FCE6B0060906E /* EditTaskViewController.m */; };
+		F35C2F7319536D110060906E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35C2F7219536D110060906E /* FacebookSDK.framework */; };
 		F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */; };
-		F39E2CA319468EBA00BD8AFE /* TaskListVIewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E2CA219468EBA00BD8AFE /* TaskListVIewTableViewController.m */; };
 		F3C02379194D234700193322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5CA1943CEF500476661 /* QuartzCore.framework */; };
 		F3D127A4194155930034DDDD /* typing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A3194155930034DDDD /* typing@2x.png */; };
 		F3D127A61941CD0F0034DDDD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A51941CD0F0034DDDD /* button_bg.png */; };
@@ -106,10 +106,9 @@
 		F35C2F6A194F87410060906E /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = ../ListViewController.m; sourceTree = "<group>"; };
 		F35C2F6F194FCE6B0060906E /* EditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTaskViewController.h; sourceTree = "<group>"; };
 		F35C2F70194FCE6B0060906E /* EditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTaskViewController.m; sourceTree = "<group>"; };
+		F35C2F7219536D110060906E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTaskViewController.h; path = ../AddTaskViewController.h; sourceTree = "<group>"; };
 		F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTaskViewController.m; path = ../AddTaskViewController.m; sourceTree = "<group>"; };
-		F39E2CA119468EBA00BD8AFE /* TaskListVIewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListVIewTableViewController.h; sourceTree = "<group>"; };
-		F39E2CA219468EBA00BD8AFE /* TaskListVIewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListVIewTableViewController.m; sourceTree = "<group>"; };
 		F3D127A3194155930034DDDD /* typing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typing@2x.png"; sourceTree = "<group>"; };
 		F3D127A51941CD0F0034DDDD /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
 		F3D127A71941D1DE0034DDDD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 				F30B8924194130420069FCCE /* UIKit.framework in Frameworks */,
 				F30B8920194130420069FCCE /* Foundation.framework in Frameworks */,
 				F359D5BF1943CE5E00476661 /* Parse.framework in Frameworks */,
+				F35C2F7319536D110060906E /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +176,7 @@
 		F30B891E194130420069FCCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F35C2F7219536D110060906E /* FacebookSDK.framework */,
 				F359D5D01943CF2B00476661 /* SystemConfiguration.framework */,
 				F359D5CE1943CF1500476661 /* StoreKit.framework */,
 				F359D5CC1943CF0300476661 /* Security.framework */,
@@ -203,8 +204,6 @@
 				F30B8934194130420069FCCE /* ViewController.h */,
 				F30B8935194130420069FCCE /* ViewController.m */,
 				F30B8931194130420069FCCE /* Main.storyboard */,
-				F39E2CA119468EBA00BD8AFE /* TaskListVIewTableViewController.h */,
-				F39E2CA219468EBA00BD8AFE /* TaskListVIewTableViewController.m */,
 				F30B896A19413D300069FCCE /* HomepageViewController.h */,
 				F30B896B19413D300069FCCE /* HomepageViewController.m */,
 				F3C0237D194D5EC500193322 /* Task Manipulation */,
@@ -418,7 +417,6 @@
 				F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */,
 				F30B896619413AA80069FCCE /* RegisterViewController.m in Sources */,
 				F30B896919413B720069FCCE /* LoginViewController.m in Sources */,
-				F39E2CA319468EBA00BD8AFE /* TaskListVIewTableViewController.m in Sources */,
 				F35C2F71194FCE6B0060906E /* EditTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

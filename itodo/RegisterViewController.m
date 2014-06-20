@@ -9,7 +9,6 @@
 #import "RegisterViewController.h"
 #import "HomepageViewController.h"
 #import "LoginViewController.h"
-#import <Parse/Parse.h>
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;

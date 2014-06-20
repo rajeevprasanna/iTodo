@@ -9,15 +9,18 @@
 #import "ListViewController.h"
 #import <Parse/Parse.h>
 #import "AddTaskViewController.h"
+#import "EditTaskViewController.h"
 
 @interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 @property NSString *objectID;
-
+@property int selectedRow;
 
 @end
 
 @implementation ListViewController
+@synthesize currentUser;
+int drow;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,9 +34,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self.TableView reloadData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+
     
     self.actionView.hidden=YES;
+    self.dropdownView.hidden=YES;
+    NSLog(@"User:%@",currentUser);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,15 +54,17 @@
     [self.view addSubview:spinner];
     [spinner startAnimating];
 
-    [self.list removeAllObjects];
-    [self.TableView reloadData];
-    PFQuery *query = [PFQuery queryWithClassName:@"TaskList"];
+    
+    
+    PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
     [query clearCachedResult];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             
             self.list=[objects mutableCopy];
             [self.TableView reloadData];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+
             [spinner stopAnimating];
             //[self performSelector:@selector(addTaskButtonPressed) withObject:nil afterDelay:2];
             
@@ -110,6 +120,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     self.actionView.hidden=NO;
     PFObject *edit=[self.list objectAtIndex:indexPath.row];
+    //self.selectedRow=indexPath.row;
     self.objectID=edit.objectId;
     NSLog(@"Object id:%@",_objectID);
     
@@ -119,7 +130,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(void)clearData
 {
-    [self.list removeAllObjects];
+ //   [self.list removeAllObjects];
 }
 
 
@@ -143,7 +154,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -154,7 +165,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         [self viewDidLoad];
     }];
 }
-*/
+
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -188,15 +199,19 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
  }
  */
 
-- (IBAction)addTaskButtonPressed:(id)sender {
-    [_TableView beginUpdates];
-  //  [UITableView beginUpdates];
-    PFObject *object = [PFObject objectWithoutDataWithClassName:@"TaskList"
+- (IBAction)deleteTask:(id)sender {
+    [self.TableView beginUpdates];
+    [self.TableView beginUpdates];
+    PFObject *object = [PFObject objectWithoutDataWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]
                                                        objectId:_objectID];
     [object deleteEventually];
+  //  [self.list removeObjectAtIndex:self.selectedRow];
+   
     NSLog(@"task:%@",_objectID);
+    [self.TableView endUpdates];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-    [_TableView endUpdates];
+
+    [self.TableView reloadData];
     [self viewDidLoad];
     
     
@@ -206,18 +221,34 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 {
     if([segue.identifier isEqualToString:@"edit"])
     {
-        AddTaskViewController *editTask = segue.destinationViewController;
+        EditTaskViewController *editTask = segue.destinationViewController;
         editTask.objectId=self.objectID;
+        editTask.currentUser=self.currentUser;
        // UIAlertView *alert=[[UITableView alloc]initwith]
+    }
+    if ([segue.identifier isEqualToString:(@"addTask")]) {
+        AddTaskViewController *at=segue.destinationViewController;
+        at.currentUser=self.currentUser;
     }
 }
 
+- (IBAction)refreshData:(id)sender {
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshTable" object:self];
 
-- (IBAction)EditTask:(id)sender {
-    
+    [self.TableView reloadData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+
+    [self viewDidLoad];
     
     
 }
 
 
+
+- (IBAction)dropDownButton:(id)sender {
+    self.dropdownView.hidden=NO;
+}
+- (IBAction)Logout:(id)sender {
+    [PFUser logOut];
+}
 @end

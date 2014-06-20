@@ -7,7 +7,6 @@
 //
 
 #import "AddTaskViewController.h"
-#import <Parse/Parse.h>
 #import "ListViewController.h"
 
 @interface AddTaskViewController ()
@@ -18,6 +17,7 @@
 @synthesize objectId;
 @synthesize myPickerView;
 @synthesize priorities;
+@synthesize currentUser;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +34,7 @@
   //  self.buttonView.hidden=YES;
     self.myPickerView.hidden=YES;
     priorities = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
+    NSLog(@"Username is %@",currentUser);
     
     // Do any additional setup after loading the view.
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
@@ -110,17 +111,22 @@
 
 
 - (IBAction)save:(id)sender {
-     NSNumber  *aNum = [NSNumber numberWithInteger: [self.priority.text integerValue]];
+    NSLog(@"PFUser name is %@",currentUser);
     
-    PFObject *add=[[PFObject alloc]initWithClassName:@"TaskList"];
+    PFObject *add=[[PFObject alloc]initWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
+    [PFQuery clearAllCachedResults];
+    NSNumber  *aNum = [NSNumber numberWithInteger: [self.priority.text integerValue]];
+
     
     [add setObject:_task.text forKey:@"task"];
     [add setObject:_dateTextField.text  forKey:@"date"];
     [add setObject:aNum forKey:@"priority"];
     [add  saveInBackground];
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+
     ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
-    //  iv.username1=self.userTextField.text;
+    iv.currentUser=self.currentUser;
+
     [self presentViewController:iv animated:YES completion:nil];
     
     

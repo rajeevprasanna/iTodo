@@ -9,9 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "HomepageViewController.h"
-#import "TaskListVIewTableViewController.h"
 #import "ListViewController.h"
-#import <Parse/Parse.h>
 @interface LoginViewController ()
 
 @end
@@ -52,7 +50,7 @@
         {
             
             ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
-          //  iv.username1=self.userTextField.text;
+            iv.currentUser=self.userTextField.text;
             [self presentViewController:iv animated:YES completion:nil];
             
         }
