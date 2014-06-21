@@ -8,9 +8,14 @@
 
 #import "ViewController.h"
 #import <Parse/Parse.h>
-#import "ListViewController.h"//;
+#import "ListViewController.h"
+
 
 @interface ViewController ()
+#define GoogleClientID    @"paster your client id"
+#define GoogleClientSecret @"paste your client secret"
+#define GoogleAuthURL   @"https://accounts.google.com/o/oauth2/auth"
+#define GoogleTokenURL  @"https://accounts.google.com/o/oauth2/token"
 
 @end
 
@@ -20,11 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   /* PFUser *currentUser = [PFUser currentUser];
+ /*   PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         // do stuff with the user
         ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
-        //iv.username1=self.username.text;
+        iv.currentUser=currentUser.username;
         [self presentViewController:iv animated:YES completion:nil];
     }
     else {*/
@@ -60,7 +65,7 @@
 
 
 
-
+//}
 
 - (void)didReceiveMemoryWarning
 {

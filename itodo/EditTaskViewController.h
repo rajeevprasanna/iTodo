@@ -13,7 +13,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *priority;
 @property (nonatomic,strong) IBOutlet UITextField *dateTextField;
 @property NSString *objectId;
-- (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)EditTask:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *buttonView;
@@ -22,5 +21,7 @@
 @property (strong, nonatomic) NSArray *priorities;
 @property (strong, nonatomic) NSString *currentUser;
 
+@property (strong, nonatomic) IBOutlet UIView *priorityVIew;
+@property (strong, nonatomic) IBOutlet UIView *priorityToggler;
 
 @end

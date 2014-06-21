@@ -19,6 +19,7 @@
 @synthesize priorities;
 @synthesize myPickerView;
 @synthesize currentUser;
+int count=1;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +36,7 @@
     
     // Do any additional setup after loading the view.
     self.myPickerView.hidden=YES;
+    self.priorityVIew.hidden=YES;
     priorities = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
 
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
@@ -93,22 +95,6 @@
     self.dateTextField.text = [NSString stringWithFormat:@"%@",picker.date];
 }
 
-- (IBAction)save:(id)sender {
-    NSNumber  *aNum = [NSNumber numberWithInteger: [self.priority.text integerValue]];
-    
-    PFObject *add=[[PFObject alloc]initWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
-    
-    [add setObject:_task.text forKey:@"task"];
-    [add setObject:_dateTextField.text  forKey:@"date"];
-    [add setObject:aNum forKey:@"priority"];
-    [add  saveInBackground];
-    
-       // [spinner release];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-    
-    
-    
-}
 
 
 #pragma mark - pickerView dataSource
@@ -180,4 +166,52 @@
     }];
     
 }
+
+#pragma mark priority buttons
+- (IBAction)viewPriority:(id)sender {
+    
+    self.priorityVIew.hidden=NO;
+    self.priorityToggler.hidden=YES;
+}
+
+- (IBAction)priority1:(id)sender1 {
+    self.priority.text=@"1";
+    
+    self.priorityVIew.hidden=YES;
+    self.priorityToggler.hidden=NO;
+    
+}
+
+- (IBAction)priority2:(id)sender2 {
+    self.priority.text=@"2";
+    self.priorityVIew.hidden=YES;
+    self.priorityToggler.hidden=NO;
+}
+- (IBAction)priority3:(id)sender3 {
+    self.priority.text=@"3";
+    self.priorityVIew.hidden=YES;
+    self.priorityToggler.hidden=NO;
+}
+- (IBAction)priority4:(id)sender4 {
+    self.priority.text=@"4";
+    self.priorityVIew.hidden=YES;
+    self.priorityToggler.hidden=NO;
+}
+
+- (IBAction)priority5:(id)sender5 {
+    self.priority.text=@"5";
+    self.priorityVIew.hidden=YES;
+    self.priorityToggler.hidden=NO;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    ListViewController *editTask = segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"editCancel"])
+        editTask.currentUser=self.currentUser;
+    
+}
+
 @end
