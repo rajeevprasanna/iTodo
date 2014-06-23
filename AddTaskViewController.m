@@ -18,6 +18,8 @@
 @synthesize myPickerView;
 @synthesize priorities;
 @synthesize currentUser;
+@synthesize priorityView;
+int count1=1;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  //  self.buttonView.hidden=YES;
+    self.priorityView.hidden=YES;
     self.myPickerView.hidden=YES;
     priorities = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
     NSLog(@"Username is %@",currentUser);
@@ -42,28 +44,18 @@
     myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
     [myPickerView setDataSource: self];
     [myPickerView setDelegate: self];
-   // myPickerView.showsSelectionIndicator = YES;
-    self.priority.inputView = myPickerView;
+    myPickerView.showsSelectionIndicator = YES;
+    self.priority.inputView = priorityView;
     
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.dateTextField setInputView:datePicker];
-    }
+}
+ 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(void)updateTextField:(id)sender
 {
@@ -71,6 +63,17 @@
     self.dateTextField.text = [NSString stringWithFormat:@"%@",picker.date];
 }
 
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    ListViewController *addTask = segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"addCancel"])
+    addTask.currentUser=self.currentUser;
+}
 
 
 #pragma mark - pickerView dataSource
@@ -129,12 +132,44 @@
 
     [self presentViewController:iv animated:YES completion:nil];
     
-    
-    
-
 }
+
+
 
 - (IBAction)cancel:(id)sender {
 }
+#pragma mark priority buttons
+- (IBAction)viewPriority:(id)sender {
+    self.priorityView.hidden=NO;
+    self.priorityToggler.hidden=YES;
+}
+- (IBAction)priority1:(id)sender {
+    self.priority.text=@"1";
+    
+    self.priorityView.hidden=YES;
+    self.priorityToggler.hidden=NO;
+    
+}
 
+- (IBAction)priority2:(id)sender {
+    self.priority.text=@"2";
+    self.priorityView.hidden=YES;
+    self.priorityToggler.hidden=NO;
+}
+- (IBAction)priority3:(id)sender {
+    self.priority.text=@"3";
+    self.priorityView.hidden=YES;
+    self.priorityToggler.hidden=NO;
+}
+- (IBAction)priority4:(id)sender {
+    self.priority.text=@"4";
+    self.priorityView.hidden=YES;
+    self.priorityToggler.hidden=NO;
+}
+
+- (IBAction)priority5:(id)sender {
+    self.priority.text=@"5";
+    self.priorityView.hidden=YES;
+    self.priorityToggler.hidden=NO;
+}
 @end

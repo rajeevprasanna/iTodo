@@ -13,7 +13,6 @@
 		F30B892A194130420069FCCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F30B8928194130420069FCCE /* InfoPlist.strings */; };
 		F30B892C194130420069FCCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B892B194130420069FCCE /* main.m */; };
 		F30B8930194130420069FCCE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B892F194130420069FCCE /* AppDelegate.m */; };
-		F30B8933194130420069FCCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30B8931194130420069FCCE /* Main.storyboard */; };
 		F30B8936194130420069FCCE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30B8935194130420069FCCE /* ViewController.m */; };
 		F30B893F194130420069FCCE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B893E194130420069FCCE /* XCTest.framework */; };
 		F30B8940194130420069FCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B891F194130420069FCCE /* Foundation.framework */; };
@@ -41,6 +40,15 @@
 		F35C2F6B194F87410060906E /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F6A194F87410060906E /* ListViewController.m */; };
 		F35C2F71194FCE6B0060906E /* EditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F70194FCE6B0060906E /* EditTaskViewController.m */; };
 		F35C2F7319536D110060906E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35C2F7219536D110060906E /* FacebookSDK.framework */; };
+		F35C2F7D1954EB1E0060906E /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F761954EB1E0060906E /* GTMHTTPFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F35C2F7E1954EB1E0060906E /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F781954EB1E0060906E /* GTMOAuth2Authentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F35C2F7F1954EB1E0060906E /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F7A1954EB1E0060906E /* GTMOAuth2SignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F35C2F801954EB1E0060906E /* GTMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F7C1954EB1E0060906E /* GTMOAuth2ViewControllerTouch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F35C2F831954EB6A0060906E /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F35C2F821954EB6A0060906E /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F35C2F851954EF5D0060906E /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35C2F841954EF5D0060906E /* GTMOAuth2ViewTouch.xib */; };
+		F35C2F871954F4720060906E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35C2F861954F4720060906E /* Main.storyboard */; };
+		F397C8C819586663008D6518 /* UiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F397C8C719586663008D6518 /* UiViewController.m */; };
+		F397C8CC19586A36008D6518 /* ParseDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F397C8CB19586A36008D6518 /* ParseDataService.m */; };
 		F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */; };
 		F3C02379194D234700193322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5CA1943CEF500476661 /* QuartzCore.framework */; };
 		F3D127A4194155930034DDDD /* typing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A3194155930034DDDD /* typing@2x.png */; };
@@ -72,7 +80,6 @@
 		F30B892D194130420069FCCE /* itodo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "itodo-Prefix.pch"; sourceTree = "<group>"; };
 		F30B892E194130420069FCCE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F30B892F194130420069FCCE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F30B8932194130420069FCCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F30B8934194130420069FCCE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F30B8935194130420069FCCE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F30B893D194130420069FCCE /* itodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +114,22 @@
 		F35C2F6F194FCE6B0060906E /* EditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTaskViewController.h; sourceTree = "<group>"; };
 		F35C2F70194FCE6B0060906E /* EditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTaskViewController.m; sourceTree = "<group>"; };
 		F35C2F7219536D110060906E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		F35C2F751954EB1E0060906E /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcher.h; sourceTree = "<group>"; };
+		F35C2F761954EB1E0060906E /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcher.m; sourceTree = "<group>"; };
+		F35C2F771954EB1E0060906E /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2Authentication.h; sourceTree = "<group>"; };
+		F35C2F781954EB1E0060906E /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2Authentication.m; sourceTree = "<group>"; };
+		F35C2F791954EB1E0060906E /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2SignIn.h; sourceTree = "<group>"; };
+		F35C2F7A1954EB1E0060906E /* GTMOAuth2SignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2SignIn.m; sourceTree = "<group>"; };
+		F35C2F7B1954EB1E0060906E /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
+		F35C2F7C1954EB1E0060906E /* GTMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
+		F35C2F811954EB6A0060906E /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		F35C2F821954EB6A0060906E /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		F35C2F841954EF5D0060906E /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTMOAuth2ViewTouch.xib; sourceTree = "<group>"; };
+		F35C2F861954F4720060906E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F397C8C619586663008D6518 /* UiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UiViewController.h; sourceTree = "<group>"; };
+		F397C8C719586663008D6518 /* UiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UiViewController.m; sourceTree = "<group>"; };
+		F397C8CA19586A36008D6518 /* ParseDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDataService.h; sourceTree = "<group>"; };
+		F397C8CB19586A36008D6518 /* ParseDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDataService.m; sourceTree = "<group>"; };
 		F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTaskViewController.h; path = ../AddTaskViewController.h; sourceTree = "<group>"; };
 		F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTaskViewController.m; path = ../AddTaskViewController.m; sourceTree = "<group>"; };
 		F3D127A3194155930034DDDD /* typing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typing@2x.png"; sourceTree = "<group>"; };
@@ -199,11 +222,12 @@
 		F30B8925194130420069FCCE /* itodo */ = {
 			isa = PBXGroup;
 			children = (
+				F397C8C919586A0A008D6518 /* services */,
 				F30B892E194130420069FCCE /* AppDelegate.h */,
 				F30B892F194130420069FCCE /* AppDelegate.m */,
 				F30B8934194130420069FCCE /* ViewController.h */,
+				F35C2F861954F4720060906E /* Main.storyboard */,
 				F30B8935194130420069FCCE /* ViewController.m */,
-				F30B8931194130420069FCCE /* Main.storyboard */,
 				F30B896A19413D300069FCCE /* HomepageViewController.h */,
 				F30B896B19413D300069FCCE /* HomepageViewController.m */,
 				F3C0237D194D5EC500193322 /* Task Manipulation */,
@@ -252,11 +276,40 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		F35C2F741954EAA70060906E /* GMail */ = {
+			isa = PBXGroup;
+			children = (
+				F35C2F841954EF5D0060906E /* GTMOAuth2ViewTouch.xib */,
+				F35C2F811954EB6A0060906E /* SBJSON.h */,
+				F35C2F821954EB6A0060906E /* SBJSON.m */,
+				F35C2F751954EB1E0060906E /* GTMHTTPFetcher.h */,
+				F35C2F761954EB1E0060906E /* GTMHTTPFetcher.m */,
+				F35C2F771954EB1E0060906E /* GTMOAuth2Authentication.h */,
+				F35C2F781954EB1E0060906E /* GTMOAuth2Authentication.m */,
+				F35C2F791954EB1E0060906E /* GTMOAuth2SignIn.h */,
+				F35C2F7A1954EB1E0060906E /* GTMOAuth2SignIn.m */,
+				F35C2F7B1954EB1E0060906E /* GTMOAuth2ViewControllerTouch.h */,
+				F35C2F7C1954EB1E0060906E /* GTMOAuth2ViewControllerTouch.m */,
+			);
+			name = GMail;
+			sourceTree = "<group>";
+		};
+		F397C8C919586A0A008D6518 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				F397C8CA19586A36008D6518 /* ParseDataService.h */,
+				F397C8CB19586A36008D6518 /* ParseDataService.m */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
 		F3C0237D194D5EC500193322 /* Task Manipulation */ = {
 			isa = PBXGroup;
 			children = (
 				F35C2F69194F87410060906E /* ListViewController.h */,
 				F35C2F6A194F87410060906E /* ListViewController.m */,
+				F397C8C619586663008D6518 /* UiViewController.h */,
+				F397C8C719586663008D6518 /* UiViewController.m */,
 				F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */,
 				F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */,
 				F35C2F6F194FCE6B0060906E /* EditTaskViewController.h */,
@@ -287,6 +340,7 @@
 			children = (
 				F30B896419413AA80069FCCE /* RegisterViewController.h */,
 				F30B896519413AA80069FCCE /* RegisterViewController.m */,
+				F35C2F741954EAA70060906E /* GMail */,
 			);
 			name = Registration;
 			sourceTree = "<group>";
@@ -377,18 +431,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35C2F851954EF5D0060906E /* GTMOAuth2ViewTouch.xib in Resources */,
 				F3D127AC1941D43D0034DDDD /* register_bg@2x.png in Resources */,
 				F3D127AA1941D2BD0034DDDD /* launch-logo@2x.png in Resources */,
 				F3D127A4194155930034DDDD /* typing@2x.png in Resources */,
 				F3D127A81941D1DE0034DDDD /* Images.xcassets in Resources */,
 				F30B8972194141CA0069FCCE /* MoveButton.png in Resources */,
+				F35C2F871954F4720060906E /* Main.storyboard in Resources */,
 				F3190F49194B2D5E00D9A471 /* Storyboard.storyboard in Resources */,
 				F30B8976194141CA0069FCCE /* default@2x.png in Resources */,
 				F30B8974194141CA0069FCCE /* launch-logo@2x_2.png in Resources */,
 				F30B8973194141CA0069FCCE /* MoveButton@2x.png in Resources */,
 				F3D127A61941CD0F0034DDDD /* button_bg.png in Resources */,
 				F30B892A194130420069FCCE /* InfoPlist.strings in Resources */,
-				F30B8933194130420069FCCE /* Main.storyboard in Resources */,
 				F30B8975194141CA0069FCCE /* default.png in Resources */,
 				F3D127B2194214760034DDDD /* add_taks.png in Resources */,
 			);
@@ -409,14 +464,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35C2F801954EB1E0060906E /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				F35C2F6B194F87410060906E /* ListViewController.m in Sources */,
 				F30B896C19413D300069FCCE /* HomepageViewController.m in Sources */,
+				F397C8CC19586A36008D6518 /* ParseDataService.m in Sources */,
 				F30B8936194130420069FCCE /* ViewController.m in Sources */,
 				F30B8930194130420069FCCE /* AppDelegate.m in Sources */,
+				F35C2F7E1954EB1E0060906E /* GTMOAuth2Authentication.m in Sources */,
+				F35C2F7D1954EB1E0060906E /* GTMHTTPFetcher.m in Sources */,
 				F30B892C194130420069FCCE /* main.m in Sources */,
+				F35C2F7F1954EB1E0060906E /* GTMOAuth2SignIn.m in Sources */,
 				F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */,
+				F35C2F831954EB6A0060906E /* SBJSON.m in Sources */,
 				F30B896619413AA80069FCCE /* RegisterViewController.m in Sources */,
 				F30B896919413B720069FCCE /* LoginViewController.m in Sources */,
+				F397C8C819586663008D6518 /* UiViewController.m in Sources */,
 				F35C2F71194FCE6B0060906E /* EditTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,14 +508,6 @@
 				F30B8929194130420069FCCE /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F30B8931194130420069FCCE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F30B8932194130420069FCCE /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		F30B8947194130420069FCCE /* InfoPlist.strings */ = {

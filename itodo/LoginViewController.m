@@ -10,6 +10,7 @@
 #import "RegisterViewController.h"
 #import "HomepageViewController.h"
 #import "ListViewController.h"
+#import "ParseDataService.h"
 @interface LoginViewController ()
 
 @end
@@ -48,11 +49,10 @@
     [PFUser logInWithUsernameInBackground:self.userTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error){
         if (!error)
         {
-            
             ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
+            [ParseDataService getTaskListFromParseService: self.userTextField.text];
             iv.currentUser=self.userTextField.text;
             [self presentViewController:iv animated:YES completion:nil];
-            
         }
         else{
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Login Failed" message:@"Invalid Username or Password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

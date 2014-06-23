@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import "AddTaskViewController.h"
 #import "EditTaskViewController.h"
+#import "ViewController.h"
+#import "ParseDataService.h"
 
 @interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIView *actionView;
@@ -20,7 +22,7 @@
 
 @implementation ListViewController
 @synthesize currentUser;
-int drow;
+long flag=0,flag1=0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,34 +49,48 @@ int drow;
     // self.clearsSelectionOnViewWillAppear = NO;
     
     
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
-                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = CGPointMake(160, 240);
-    spinner.hidesWhenStopped = YES;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
+//                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = CGPointMake(160, 240);
+//    spinner.hidesWhenStopped = YES;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
 
     
     
-    PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
-    [query clearCachedResult];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
+//    PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
+//    [query clearCachedResult];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    
+//            sleep(0.06);
+//            self.list=[objects mutableCopy];
+//            self.list = [ParseDataService getTaskListFromParseService:currentUser];
+//            [self.TableView reloadData];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+            //[query setLimit:1000];
             
-            self.list=[objects mutableCopy];
-            [self.TableView reloadData];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
 
-            [spinner stopAnimating];
+//            [spinner stopAnimating];
+         //   [self refreshData:nil];
             //[self performSelector:@selector(addTaskButtonPressed) withObject:nil afterDelay:2];
             
             self.TableView.scrollEnabled=YES;
          //   [self.TableView addSubview:self.actionView];
         }
-    }];
-    
-    
-    
+//    }];
+
+//}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+   self.list = [ParseDataService getTaskListFromParseService:currentUser];
+   self.TableView.scrollEnabled=YES;
+}
+
+-(void)reloadTable
+{
+    NSLog(@"realoding table after receiving notification");
+    [self.TableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,13 +119,17 @@ int drow;
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" ]; //forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell] ;
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"] ;
     }
     // Configure the cell...
+    
     PFObject *listData=[self.list objectAtIndex:indexPath.row];
     cell.textLabel.text=listData[@"task"];
     
     cell.detailTextLabel.text=[NSString stringWithFormat:@"Priority:%@",listData[@"priority"]];
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor redColor];
+    [cell setSelectedBackgroundView:bgColorView];
     
     return cell;
 }
@@ -117,14 +137,34 @@ int drow;
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"RowIndex is:%ld",(long)indexPath.row);
+    flag=indexPath.row;
+    if ([self.list count]==1) {
+        self.actionView.hidden=NO;
+        if (flag%2==0) {
+            self.actionView.hidden=YES;
+        }
+        else{
+            self.actionView.hidden=NO;
+        }
+    }
+    if (flag!=0 && flag==flag1)
+    {
+        self.actionView.hidden=YES;
+    }
+    if (flag!=flag1) {
+        self.actionView.hidden=NO;
+    }
     
-    self.actionView.hidden=NO;
-    PFObject *edit=[self.list objectAtIndex:indexPath.row];
+    else{
+        self.actionView.hidden=YES;
+    }
     //self.selectedRow=indexPath.row;
+    PFObject *edit=[self.list objectAtIndex:indexPath.row];
+
     self.objectID=edit.objectId;
     NSLog(@"Object id:%@",_objectID);
-    
-    
+    flag1=flag;     
 }
 
 
@@ -232,17 +272,18 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }
 }
 
+
+
 - (IBAction)refreshData:(id)sender {
     [[NSNotificationCenter defaultCenter]postNotificationName:@"refreshTable" object:self];
-
+    
     [self.TableView reloadData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-
+    
     [self viewDidLoad];
     
-    
-}
 
+}
 
 
 - (IBAction)dropDownButton:(id)sender {
@@ -250,5 +291,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 - (IBAction)Logout:(id)sender {
     [PFUser logOut];
+    [PFUser currentUser];
+    
+    ViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    //iv.currentUser=self.currentUser;
+    
+    [self presentViewController:iv animated:YES completion:nil];
+    
+    
 }
 @end
