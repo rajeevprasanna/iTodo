@@ -16,11 +16,15 @@
 @interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 @property NSString *objectID;
-@property int selectedRow;
+//@property int selectedRow;
 
 @end
 
 @implementation ListViewController
+{
+    UIActivityIndicatorView *_spinner;
+    NSInteger _selectedRow;
+}
 @synthesize currentUser;
 long flag=0,flag1=0;
 
@@ -49,14 +53,12 @@ long flag=0,flag1=0;
     // self.clearsSelectionOnViewWillAppear = NO;
     
     
-//    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
-//                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//    spinner.center = CGPointMake(160, 240);
-//    spinner.hidesWhenStopped = YES;
-//    [self.view addSubview:spinner];
-//    [spinner startAnimating];
-
-    
+    _spinner = [[UIActivityIndicatorView alloc]
+                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _spinner.center = CGPointMake(160, 240);
+    _spinner.hidesWhenStopped = YES;
+    [self.view addSubview:_spinner];
+    [_spinner startAnimating];
     
 //    PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
 //    [query clearCachedResult];
@@ -83,8 +85,19 @@ long flag=0,flag1=0;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-   self.list = [ParseDataService getTaskListFromParseService:currentUser];
-   self.TableView.scrollEnabled=YES;
+    [self loadDataFromServer];
+}
+
+-(void)loadDataFromServer
+{
+    [_spinner startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        self.list  =  [ParseDataService getTaskListFromParseService:currentUser];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_spinner stopAnimating];
+            [self.TableView reloadData];
+        });
+    });
 }
 
 -(void)reloadTable
@@ -137,16 +150,20 @@ long flag=0,flag1=0;
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"RowIndex is:%ld",(long)indexPath.row);
+    NSLog(@"selected RowIndex is:%ld",(long)indexPath.row);
+    _selectedRow = indexPath.row;
+    
     flag=indexPath.row;
-    if ([self.list count]==1) {
+        if (flag==0) {
+        NSLog(@"in if block");
         self.actionView.hidden=NO;
-        if (flag%2==0) {
-            self.actionView.hidden=YES;
-        }
-        else{
-            self.actionView.hidden=NO;
-        }
+            NSLog(@"after call");
+        //if (flag%2==0) {
+          //  self.actionView.hidden=YES;
+      //  }
+      //  else{
+       //     self.actionView.hidden=YES;
+       // }
     }
     if (flag!=0 && flag==flag1)
     {
@@ -199,11 +216,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PFObject *object = [self.list objectAtIndex:indexPath.row];
-    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [object delete];
         [object saveInBackground];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
         [self viewDidLoad];
-    }];
 }
 
 
@@ -240,21 +256,20 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
  */
 
 - (IBAction)deleteTask:(id)sender {
-    [self.TableView beginUpdates];
-    [self.TableView beginUpdates];
+//    [self.TableView beginUpdates];
     PFObject *object = [PFObject objectWithoutDataWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]
                                                        objectId:_objectID];
     [object deleteEventually];
-  //  [self.list removeObjectAtIndex:self.selectedRow];
-   
-    NSLog(@"task:%@",_objectID);
-    [self.TableView endUpdates];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
 
-    [self.TableView reloadData];
-    [self viewDidLoad];
-    
-    
+    if(_selectedRow >= 0){
+        [self.list removeObjectAtIndex: _selectedRow];
+        [self.TableView reloadData];
+    }
+//    NSLog(@"task:%@",_objectID);
+//    [self.TableView endUpdates];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
+
+//      [self loadDataFromServer];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

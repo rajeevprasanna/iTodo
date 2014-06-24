@@ -8,6 +8,7 @@
 
 #import "AddTaskViewController.h"
 #import "ListViewController.h"
+#import "ParseDataService.h"
 
 @interface AddTaskViewController ()
 
@@ -45,12 +46,12 @@ int count1=1;
     [myPickerView setDataSource: self];
     [myPickerView setDelegate: self];
     myPickerView.showsSelectionIndicator = YES;
-    self.priority.inputView = priorityView;
+    self.priority.inputView = myPickerView;
     
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.dateTextField setInputView:datePicker];
 }
- 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -124,14 +125,12 @@ int count1=1;
     [add setObject:_task.text forKey:@"task"];
     [add setObject:_dateTextField.text  forKey:@"date"];
     [add setObject:aNum forKey:@"priority"];
-    [add  saveInBackground];
+    [add  save];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
-
     ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
     iv.currentUser=self.currentUser;
 
     [self presentViewController:iv animated:YES completion:nil];
-    
 }
 
 

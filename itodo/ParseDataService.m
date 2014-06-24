@@ -21,8 +21,9 @@ static NSMutableArray * _taskList;
 //             _taskList = [objects mutableCopy];
 //         }
 //    }];
-//    
+//
+    [query orderByAscending:@"priority"];
     _taskList = [[query findObjects] mutableCopy];
     return _taskList;
-}
+} 
 @end

@@ -10,4 +10,5 @@
 
 @interface ParseDataService : NSObject
 +(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser;
+
 @end
