@@ -56,7 +56,7 @@
     
     _spinner = [[UIActivityIndicatorView alloc]
                                         initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    _spinner.center = CGPointMake(160, 240);
+    _spinner.center = CGPointMake(160, 240) ;
     _spinner.hidesWhenStopped = YES;
     [self.view addSubview:_spinner];
     [_spinner startAnimating];
@@ -201,15 +201,26 @@
     PFObject *edit=[self.list objectAtIndex:indexPath.row];
     
     self.objectID=edit.objectId;
-    NSLog(@"Object id:%@",_objectID);
+//    NSLog(@"Object id:%@",_objectID);
+    [self updateBackGroundColorOfStatus:tableView withIndexPath:indexPath];
 //    flag1=flag;
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _editStatusForRows[indexPath.row] = @YES;
+    [self updateBackGroundColorOfStatus:tableView withIndexPath:indexPath];
+}
+
+-(void)updateBackGroundColorOfStatus:(UITableView *)tableView withIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell setSelectedBackgroundView:[UIColor whiteColor]];
+    if([_editStatusForRows[indexPath.row] intValue] == 1){
+        cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
+    }
+    else{
+       cell.selectedBackgroundView.backgroundColor = [UIColor redColor];
+    }
 }
 
 -(void)clearData
