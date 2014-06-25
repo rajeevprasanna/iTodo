@@ -12,7 +12,7 @@
 #import "EditTaskViewController.h"
 #import "ViewController.h"
 #import "ParseDataService.h"
-
+#import "AddProjectViewController.h"
 @interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 @property NSString *objectID;
@@ -24,9 +24,10 @@
 {
     UIActivityIndicatorView *_spinner;
     NSInteger _selectedRow;
+    NSMutableArray *_editStatusForRows;
 }
 @synthesize currentUser;
-long flag=0,flag1=0;
+//long flag=0,flag1=0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,6 +61,8 @@ long flag=0,flag1=0;
     [self.view addSubview:_spinner];
     [_spinner startAnimating];
     
+    
+    
 //    PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
 //    [query clearCachedResult];
 //    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -85,6 +88,7 @@ long flag=0,flag1=0;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self initializeDefaultEditValues];
     [self loadDataFromServer];
 }
 
@@ -93,11 +97,22 @@ long flag=0,flag1=0;
     [_spinner startAnimating];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.list  =  [ParseDataService getTaskListFromParseService:currentUser];
+        [self initializeDefaultEditValues];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [_spinner stopAnimating];
             [self.TableView reloadData];
         });
     });
+}
+
+-(void)initializeDefaultEditValues
+{
+     NSInteger  count = self.list.count;
+    _editStatusForRows = [[NSMutableArray alloc]initWithCapacity:self.list.count];
+    for(NSInteger i  =0 ;i<count;i++){
+        _editStatusForRows[i] = @YES;
+    }
 }
 
 -(void)reloadTable
@@ -139,7 +154,7 @@ long flag=0,flag1=0;
     PFObject *listData=[self.list objectAtIndex:indexPath.row];
     cell.textLabel.text=listData[@"task"];
     
-    cell.detailTextLabel.text=[NSString stringWithFormat:@"Priority:%@",listData[@"priority"]];
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"%@:%@",listData[@"project"],listData[@"priority"]];
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = [UIColor redColor];
     [cell setSelectedBackgroundView:bgColorView];
@@ -148,42 +163,54 @@ long flag=0,flag1=0;
 }
 
 
-- (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"selected RowIndex is:%ld",(long)indexPath.row);
     _selectedRow = indexPath.row;
     
-    flag=indexPath.row;
-        if (flag==0) {
-        NSLog(@"in if block");
-        self.actionView.hidden=NO;
-            NSLog(@"after call");
-        //if (flag%2==0) {
-          //  self.actionView.hidden=YES;
-      //  }
-      //  else{
-       //     self.actionView.hidden=YES;
-       // }
-    }
-    if (flag!=0 && flag==flag1)
-    {
-        self.actionView.hidden=YES;
-    }
-    if (flag!=flag1) {
-        self.actionView.hidden=NO;
+//    flag=indexPath.row;
+//    if (flag==0) {
+//        NSLog(@"in if block");
+//        self.actionView.hidden=NO;
+//        NSLog(@"after call");
+//     }
+//    if (flag!=0 && flag==flag1)
+//    {
+//        self.actionView.hidden=YES;
+//    }
+//    if (flag!=flag1) {
+//        self.actionView.hidden=NO;
+//    }
+//    
+//    else{
+//        self.actionView.hidden=YES;
+//    }
+    //self.selectedRow=indexPath.row;
+    
+//    self.actionView.hidden = !self.actionView.hidden;
+    
+    //for the first click, set the hide status to NO. for the next click, set its status to YES in array
+    bool actionViewHideStatus = [_editStatusForRows[indexPath.row] intValue];
+    if(actionViewHideStatus && actionViewHideStatus == YES){
+        _editStatusForRows[indexPath.row] = @NO;
+    }else{
+        _editStatusForRows[indexPath.row] = @YES;
     }
     
-    else{
-        self.actionView.hidden=YES;
-    }
-    //self.selectedRow=indexPath.row;
+    self.actionView.hidden = [_editStatusForRows[indexPath.row] intValue];
+    
     PFObject *edit=[self.list objectAtIndex:indexPath.row];
-
+    
     self.objectID=edit.objectId;
     NSLog(@"Object id:%@",_objectID);
-    flag1=flag;     
+//    flag1=flag;
 }
 
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _editStatusForRows[indexPath.row] = @YES;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelectedBackgroundView:[UIColor whiteColor]];
+}
 
 -(void)clearData
 {
@@ -285,6 +312,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         AddTaskViewController *at=segue.destinationViewController;
         at.currentUser=self.currentUser;
     }
+    if ([segue.identifier isEqualToString:@"addProject"]) {
+        AddProjectViewController *adprjct=segue.destinationViewController;
+        adprjct.currentUser=self.currentUser;
+        
+    }
 }
 
 
@@ -304,6 +336,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 - (IBAction)dropDownButton:(id)sender {
     self.dropdownView.hidden=NO;
 }
+
+
+
 - (IBAction)Logout:(id)sender {
     [PFUser logOut];
     [PFUser currentUser];

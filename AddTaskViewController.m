@@ -121,7 +121,7 @@ int count1=1;
     [PFQuery clearAllCachedResults];
     NSNumber  *aNum = [NSNumber numberWithInteger: [self.priority.text integerValue]];
 
-    
+   // [add setObject: forKey:<#(NSString *)#>]
     [add setObject:_task.text forKey:@"task"];
     [add setObject:_dateTextField.text  forKey:@"date"];
     [add setObject:aNum forKey:@"priority"];

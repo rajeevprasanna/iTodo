@@ -51,6 +51,7 @@
 		F397C8CC19586A36008D6518 /* ParseDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F397C8CB19586A36008D6518 /* ParseDataService.m */; };
 		F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */; };
 		F3C02379194D234700193322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5CA1943CEF500476661 /* QuartzCore.framework */; };
+		F3C37E88195A284400F63F85 /* AddProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C37E87195A284400F63F85 /* AddProjectViewController.m */; };
 		F3D127A4194155930034DDDD /* typing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A3194155930034DDDD /* typing@2x.png */; };
 		F3D127A61941CD0F0034DDDD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A51941CD0F0034DDDD /* button_bg.png */; };
 		F3D127A81941D1DE0034DDDD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A71941D1DE0034DDDD /* Images.xcassets */; };
@@ -132,6 +133,8 @@
 		F397C8CB19586A36008D6518 /* ParseDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDataService.m; sourceTree = "<group>"; };
 		F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTaskViewController.h; path = ../AddTaskViewController.h; sourceTree = "<group>"; };
 		F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTaskViewController.m; path = ../AddTaskViewController.m; sourceTree = "<group>"; };
+		F3C37E86195A284400F63F85 /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectViewController.h; sourceTree = "<group>"; };
+		F3C37E87195A284400F63F85 /* AddProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectViewController.m; sourceTree = "<group>"; };
 		F3D127A3194155930034DDDD /* typing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typing@2x.png"; sourceTree = "<group>"; };
 		F3D127A51941CD0F0034DDDD /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
 		F3D127A71941D1DE0034DDDD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 				F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */,
 				F35C2F6F194FCE6B0060906E /* EditTaskViewController.h */,
 				F35C2F70194FCE6B0060906E /* EditTaskViewController.m */,
+				F3C37E86195A284400F63F85 /* AddProjectViewController.h */,
+				F3C37E87195A284400F63F85 /* AddProjectViewController.m */,
 			);
 			name = "Task Manipulation";
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				F30B896C19413D300069FCCE /* HomepageViewController.m in Sources */,
 				F397C8CC19586A36008D6518 /* ParseDataService.m in Sources */,
 				F30B8936194130420069FCCE /* ViewController.m in Sources */,
+				F3C37E88195A284400F63F85 /* AddProjectViewController.m in Sources */,
 				F30B8930194130420069FCCE /* AppDelegate.m in Sources */,
 				F35C2F7E1954EB1E0060906E /* GTMOAuth2Authentication.m in Sources */,
 				F35C2F7D1954EB1E0060906E /* GTMHTTPFetcher.m in Sources */,

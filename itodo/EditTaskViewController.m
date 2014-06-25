@@ -176,7 +176,6 @@ int count=1;
 
 - (IBAction)priority1:(id)sender1 {
     self.priority.text=@"1";
-    
     self.priorityVIew.hidden=YES;
     self.priorityToggler.hidden=NO;
     

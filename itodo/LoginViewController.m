@@ -46,6 +46,11 @@
     
 }*/
 - (IBAction)login:(id)sender {
+    
+    self.userTextField.text = @"h";
+    self.passwordTextField.text = @"h";
+    //comment the above hard coded credentials
+    
     [PFUser logInWithUsernameInBackground:self.userTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error){
         if (!error)
         {
