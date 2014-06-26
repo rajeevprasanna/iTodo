@@ -7,8 +7,17 @@
 //
 
 #import "ParseCronService.h"
+#import "ParseDataService.h"
 
 @implementation ParseCronService
+
+static NSString *_currentUserName;
+
+
++(void)setUserName:(NSString *)loggedInUserName
+{
+    _currentUserName = loggedInUserName;
+}
 
 static dispatch_once_t once;
 
@@ -22,6 +31,14 @@ static dispatch_once_t once;
 +(void)lookForTimeOutTasks
 {
     NSLog(@"checking tasks for timeout ones");
+    
+    NSArray *taskList;
+    
+    if(_currentUserName != nil){
+         taskList = [ParseDataService getAlreadyLoadedTasks:_currentUserName];
+    }
+    
+    NSLog(@"taskList => %@", taskList);
 }
 
 @end

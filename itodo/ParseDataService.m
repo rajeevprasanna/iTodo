@@ -16,6 +16,14 @@ static NSMutableArray *_projectList;
 static NSString *temp;
 static NSSet *temp1;
 
++(NSMutableArray *)getAlreadyLoadedTasks:(NSString *)currentUser
+{
+    if(_taskList == nil){
+        _taskList = [self getTaskListFromParseService:currentUser];
+    }
+    return _taskList;
+}
+
 +(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser
 {
     PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];

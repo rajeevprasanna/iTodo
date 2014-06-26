@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface ParseCronService : NSObject
-
+ 
++(void)setUserName:(NSString *)loggedInUserName;
 +(void)startCronJobForTimeOutTasks;
 
 @end

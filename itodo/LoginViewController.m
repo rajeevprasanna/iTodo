@@ -61,6 +61,9 @@
             iv.currentUser=self.userTextField.text;
             [self presentViewController:iv animated:YES completion:nil];
             
+            //set user name in cron service
+            [ParseCronService setUserName:self.userTextField.text];
+            
             //After successful login, set up the cron to run regularly to alert user with timeout todo tasks
             [ParseCronService startCronJobForTimeOutTasks];
         }
