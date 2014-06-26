@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		025210A9195C7E0E00FD6C55 /* ParseCronService.m in Sources */ = {isa = PBXBuildFile; fileRef = 025210A8195C7E0E00FD6C55 /* ParseCronService.m */; };
 		F30B8920194130420069FCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B891F194130420069FCCE /* Foundation.framework */; };
 		F30B8922194130420069FCCE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8921194130420069FCCE /* CoreGraphics.framework */; };
 		F30B8924194130420069FCCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8923194130420069FCCE /* UIKit.framework */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		025210A7195C7E0E00FD6C55 /* ParseCronService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseCronService.h; sourceTree = "<group>"; };
+		025210A8195C7E0E00FD6C55 /* ParseCronService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseCronService.m; sourceTree = "<group>"; };
 		F30B891C194130420069FCCE /* itodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30B891F194130420069FCCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F30B8921194130420069FCCE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -182,6 +185,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		025210A3195C7DA600FD6C55 /* cron */ = {
+			isa = PBXGroup;
+			children = (
+				025210A7195C7E0E00FD6C55 /* ParseCronService.h */,
+				025210A8195C7E0E00FD6C55 /* ParseCronService.m */,
+			);
+			name = cron;
+			sourceTree = "<group>";
+		};
 		F30B8913194130420069FCCE = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +316,7 @@
 		F397C8C919586A0A008D6518 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				025210A3195C7DA600FD6C55 /* cron */,
 				F397C8CA19586A36008D6518 /* ParseDataService.h */,
 				F397C8CB19586A36008D6518 /* ParseDataService.m */,
 			);
@@ -476,6 +489,7 @@
 				F35C2F801954EB1E0060906E /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				F35C2F6B194F87410060906E /* ListViewController.m in Sources */,
 				F30B896C19413D300069FCCE /* HomepageViewController.m in Sources */,
+				025210A9195C7E0E00FD6C55 /* ParseCronService.m in Sources */,
 				F397C8CC19586A36008D6518 /* ParseDataService.m in Sources */,
 				F30B8936194130420069FCCE /* ViewController.m in Sources */,
 				F3C37E88195A284400F63F85 /* AddProjectViewController.m in Sources */,

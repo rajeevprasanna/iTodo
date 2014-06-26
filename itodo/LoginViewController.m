@@ -11,6 +11,8 @@
 #import "HomepageViewController.h"
 #import "ListViewController.h"
 #import "ParseDataService.h"
+#import "ParseCronService.h"
+
 @interface LoginViewController ()
 
 @end
@@ -58,6 +60,9 @@
             [ParseDataService getTaskListFromParseService: self.userTextField.text];
             iv.currentUser=self.userTextField.text;
             [self presentViewController:iv animated:YES completion:nil];
+            
+            //After successful login, set up the cron to run regularly to alert user with timeout todo tasks
+            [ParseCronService startCronJobForTimeOutTasks];
         }
         else{
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Login Failed" message:@"Invalid Username or Password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
