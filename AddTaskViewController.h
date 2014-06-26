@@ -13,6 +13,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *task;
 @property (strong, nonatomic) IBOutlet UITextField *priority;
 @property (nonatomic,strong) IBOutlet UITextField *dateTextField;
+
+@property (strong, nonatomic) IBOutlet UITextField *projectTextField;
+
 @property NSString *objectId;
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;

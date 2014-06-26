@@ -50,6 +50,7 @@
 		F397C8C819586663008D6518 /* UiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F397C8C719586663008D6518 /* UiViewController.m */; };
 		F397C8CC19586A36008D6518 /* ParseDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = F397C8CB19586A36008D6518 /* ParseDataService.m */; };
 		F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */; };
+		F3BB6359195B370400596524 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BB6358195B370400596524 /* MediaPlayer.framework */; };
 		F3C02379194D234700193322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5CA1943CEF500476661 /* QuartzCore.framework */; };
 		F3C37E88195A284400F63F85 /* AddProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C37E87195A284400F63F85 /* AddProjectViewController.m */; };
 		F3D127A4194155930034DDDD /* typing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A3194155930034DDDD /* typing@2x.png */; };
@@ -133,6 +134,7 @@
 		F397C8CB19586A36008D6518 /* ParseDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDataService.m; sourceTree = "<group>"; };
 		F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddTaskViewController.h; path = ../AddTaskViewController.h; sourceTree = "<group>"; };
 		F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddTaskViewController.m; path = ../AddTaskViewController.m; sourceTree = "<group>"; };
+		F3BB6358195B370400596524 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F3C37E86195A284400F63F85 /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectViewController.h; sourceTree = "<group>"; };
 		F3C37E87195A284400F63F85 /* AddProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectViewController.m; sourceTree = "<group>"; };
 		F3D127A3194155930034DDDD /* typing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typing@2x.png"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3BB6359195B370400596524 /* MediaPlayer.framework in Frameworks */,
 				F3C02379194D234700193322 /* QuartzCore.framework in Frameworks */,
 				F359D5D11943CF2B00476661 /* SystemConfiguration.framework in Frameworks */,
 				F359D5CF1943CF1500476661 /* StoreKit.framework in Frameworks */,
@@ -202,6 +205,7 @@
 		F30B891E194130420069FCCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3BB6358195B370400596524 /* MediaPlayer.framework */,
 				F35C2F7219536D110060906E /* FacebookSDK.framework */,
 				F359D5D01943CF2B00476661 /* SystemConfiguration.framework */,
 				F359D5CE1943CF1500476661 /* StoreKit.framework */,

@@ -219,7 +219,7 @@
         cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
     }
     else{
-       cell.selectedBackgroundView.backgroundColor = [UIColor redColor];
+       cell.selectedBackgroundView.backgroundColor = [UIColor blueColor];
     }
 }
 

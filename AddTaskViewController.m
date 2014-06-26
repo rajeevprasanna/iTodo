@@ -50,6 +50,7 @@ int count1=1;
     
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.dateTextField setInputView:datePicker];
+    [self projectList];
 }
 
 - (void)didReceiveMemoryWarning
@@ -137,7 +138,9 @@ int count1=1;
 
 - (IBAction)cancel:(id)sender {
 }
-#pragma mark priority buttons
+
+
+#pragma mark - priority buttons
 - (IBAction)viewPriority:(id)sender {
     self.priorityView.hidden=NO;
     self.priorityToggler.hidden=YES;
@@ -171,4 +174,12 @@ int count1=1;
     self.priorityView.hidden=YES;
     self.priorityToggler.hidden=NO;
 }
+
+#pragma mark - getting Project list
+-(void)projectList
+{
+    NSArray *projectArray=[ParseDataService getProjectListFromParseServie:currentUser];
+    NSLog(@"Projects are:%@",projectArray);
+}
+
 @end
