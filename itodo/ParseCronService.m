@@ -62,13 +62,50 @@ static dispatch_once_t once;
                 
                 if([dateObject compare:currentDate] ==  NSOrderedAscending){
                     NSLog(@"this one is expired time => date => %@", dateObject);
+                    [self showNotificationMessage:listData[@"project"] withPriority:listData[@"priority"]];
                     notificationCount ++;
                 }
             }
-            
         }
     }
     [self setNotificationOnAppIcon:notificationCount];
+}
+
++(void)showNotificationMessage:(NSString *)taskName withPriority:(NSString *)priority
+{
+//    UIApplicationState state = [[UIApplication sharedApplication] applicationState];
+//        if (state == UIApplicationStateBackground || state == UIApplicationStateInactive)
+//        {
+//            UILocalNotification *notification = [[UILocalNotification alloc] init];
+//            notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+//            notification.alertAction = @"click to see the tasks";
+//            notification.alertBody =[NSString stringWithFormat:@"taskName => %@  with priority => %@", taskName, priority];
+//            notification.timeZone = [NSTimeZone systemTimeZone];
+//            notification.soundName = UILocalNotificationDefaultSoundName;
+//            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+//        }
+    
+    
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    
+    // current time plus 10 secs
+    NSDate *now = [NSDate date];
+    NSDate *dateToFire = [now dateByAddingTimeInterval:2];
+    
+//    NSLog(@"now time: %@", now);
+//    NSLog(@"fire time: %@", dateToFire);
+    
+    localNotification.fireDate = dateToFire;
+    localNotification.alertBody = [NSString stringWithFormat:@"taskName => %@  with priority => %@", taskName, priority];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+//    localNotification.applicationIconBadgeNumber = 1; // increment
+    
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:taskName, @"priority", nil];
+    localNotification.userInfo = infoDict;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 +(void)setNotificationOnAppIcon:(NSInteger)notificationCount
