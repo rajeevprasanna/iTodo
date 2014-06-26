@@ -14,7 +14,7 @@ static NSMutableArray * _taskList;
 static NSSet * _projectListSet;
 static NSMutableArray *_projectList;
 static NSString *temp;
-static NSArray *temp1;
+static NSSet *temp1;
 
 +(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser
 {
@@ -38,7 +38,7 @@ static NSArray *temp1;
     [query selectKeys:@[@"project"]];
     _projectList=[[query findObjects]mutableCopy];
    // NSLog(@"%@",[query["project"]);
-    temp1=[[NSSet setWithArray:_projectList]allObjects];
+    temp1=[NSSet setWithArray:_projectList];
     _projectListSet=temp1;
    // NSLog(@"projects:%@",_projectList);
     NSLog(@"projects in set:%@",temp1);
