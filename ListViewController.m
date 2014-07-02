@@ -13,6 +13,8 @@
 #import "ViewController.h"
 #import "ParseDataService.h"
 #import "AddProjectViewController.h"
+
+
 @interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 @property NSString *objectID;
@@ -299,15 +301,14 @@ long flag=0;
         editTask.objectId=self.objectID;
         editTask.currentUser=self.currentUser;
        // UIAlertView *alert=[[UITableView alloc]initwith]
-    }
+    }else
     if ([segue.identifier isEqualToString:(@"addTask")]) {
         AddTaskViewController *at=segue.destinationViewController;
         at.currentUser=self.currentUser;
-    }
+    }else
     if ([segue.identifier isEqualToString:@"addProject"]) {
         AddProjectViewController *adprjct=segue.destinationViewController;
         adprjct.currentUser=self.currentUser;
-        
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		027215EE19646E4B00037BF1 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027215ED19646E4B00037BF1 /* TaskListViewController.m */; };
 		F30B8920194130420069FCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B891F194130420069FCCE /* Foundation.framework */; };
 		F30B8922194130420069FCCE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8921194130420069FCCE /* CoreGraphics.framework */; };
 		F30B8924194130420069FCCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8923194130420069FCCE /* UIKit.framework */; };
@@ -74,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		027215EC19646E4B00037BF1 /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
+		027215ED19646E4B00037BF1 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 		F30B891C194130420069FCCE /* itodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30B891F194130420069FCCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F30B8921194130420069FCCE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -324,6 +327,8 @@
 				F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */,
 				F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */,
 				F35C2F6F194FCE6B0060906E /* EditTaskViewController.h */,
+				027215EC19646E4B00037BF1 /* TaskListViewController.h */,
+				027215ED19646E4B00037BF1 /* TaskListViewController.m */,
 				F35C2F70194FCE6B0060906E /* EditTaskViewController.m */,
 				F3C37E86195A284400F63F85 /* AddProjectViewController.h */,
 				F3C37E87195A284400F63F85 /* AddProjectViewController.m */,
@@ -497,6 +502,7 @@
 				F3CEB785195CDBE900A44A5B /* ProjectListViewController.m in Sources */,
 				F30B8936194130420069FCCE /* ViewController.m in Sources */,
 				F3C37E88195A284400F63F85 /* AddProjectViewController.m in Sources */,
+				027215EE19646E4B00037BF1 /* TaskListViewController.m in Sources */,
 				F30B8930194130420069FCCE /* AppDelegate.m in Sources */,
 				F35C2F7E1954EB1E0060906E /* GTMOAuth2Authentication.m in Sources */,
 				F35C2F7D1954EB1E0060906E /* GTMHTTPFetcher.m in Sources */,

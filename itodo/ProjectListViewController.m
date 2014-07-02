@@ -8,6 +8,7 @@
 
 #import "ProjectListViewController.h"
 #import "ParseDataService.h"
+#import "TaskListViewController.h"
 
 @interface ProjectListViewController ()
 
@@ -18,7 +19,7 @@
     NSInteger _selectedRow;
     NSMutableArray *_editStatusForRows;
     NSMutableArray *projectListArray;
-
+    NSString * _selectedProjectName;
 }
 @synthesize currentUser;
 @synthesize projectList;
@@ -122,7 +123,7 @@
     // Configure the cell...
    // PFObject *listData=[projectListArray objectAtIndex:indexPath.row];
     
-        cell.textLabel.text=[self.projectList objectAtIndex:indexPath.row];
+    cell.textLabel.text=[self.projectList objectAtIndex:indexPath.row];
     
     
    // cell.textLabel.text=[listData objectAtIndex:indexPath.row];
@@ -134,44 +135,60 @@
     return cell;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"showTasksSegue"])
+    {
+        TaskListViewController *controller = (id)segue.destinationViewController;
+        controller.userName = self.currentUser;
+        controller.projectName = _selectedProjectName;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"selected RowIndex is:%ld",(long)indexPath.row);
-    _selectedRow = indexPath.row;
+    _selectedProjectName = [self.projectList objectAtIndex:indexPath.row];;
+    NSLog(@"project name => %@", _selectedProjectName);
+    [self performSegueWithIdentifier:@"showTasksSegue" sender:self];
+//    _selectedRow = indexPath.row;
     
-    //    flag=indexPath.row;
-    //    if (flag==0) {
-    //        NSLog(@"in if block");
-    //        self.actionView.hidden=NO;
-    //        NSLog(@"after call");
-    //     }
-    //    if (flag!=0 && flag==flag1)
-    //    {
-    //        self.actionView.hidden=YES;
-    //    }
-    //    if (flag!=flag1) {
-    //        self.actionView.hidden=NO;
-    //    }
-    //
-    //    else{
-    //        self.actionView.hidden=YES;
-    //    }
-    //self.selectedRow=indexPath.row;
-    
-    //    self.actionView.hidden = !self.actionView.hidden;
-    
-    //for the first click, set the hide status to NO. for the next click, set its status to YES in array
-    bool actionViewHideStatus = [_editStatusForRows[indexPath.row] intValue];
-    if(actionViewHideStatus && actionViewHideStatus == YES){
-        _editStatusForRows[indexPath.row] = @NO;
-    }else{
-        _editStatusForRows[indexPath.row] = @YES;
-    }
-    
-    self.actionView.hidden = [_editStatusForRows[indexPath.row] intValue];
-    
-    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    self.projectName = selectedCell.textLabel.text;
-    [self updateBackGroundColorOfStatus:tableView withIndexPath:indexPath];
+ 
+//    [ParseDataService getTaskListFromParseService:self.currentUser withProject:projectName];
+//    
+//    //    flag=indexPath.row;
+//    //    if (flag==0) {
+//    //        NSLog(@"in if block");
+//    //        self.actionView.hidden=NO;
+//    //        NSLog(@"after call");
+//    //     }
+//    //    if (flag!=0 && flag==flag1)
+//    //    {
+//    //        self.actionView.hidden=YES;
+//    //    }
+//    //    if (flag!=flag1) {
+//    //        self.actionView.hidden=NO;
+//    //    }
+//    //
+//    //    else{
+//    //        self.actionView.hidden=YES;
+//    //    }
+//    //self.selectedRow=indexPath.row;
+//    
+//    //    self.actionView.hidden = !self.actionView.hidden;
+//    
+//    //for the first click, set the hide status to NO. for the next click, set its status to YES in array
+//    bool actionViewHideStatus = [_editStatusForRows[indexPath.row] intValue];
+//    if(actionViewHideStatus && actionViewHideStatus == YES){
+//        _editStatusForRows[indexPath.row] = @NO;
+//    }else{
+//        _editStatusForRows[indexPath.row] = @YES;
+//    }
+//    
+//    self.actionView.hidden = [_editStatusForRows[indexPath.row] intValue];
+//    
+//    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+//    self.projectName = selectedCell.textLabel.text;
+//    [self updateBackGroundColorOfStatus:tableView withIndexPath:indexPath];
     //    flag1=flag;
 }
 
@@ -238,6 +255,8 @@
     
     //      [self loadDataFromServer];
 }
+
+
 
 /*
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

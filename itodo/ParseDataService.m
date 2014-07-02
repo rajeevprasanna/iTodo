@@ -53,26 +53,26 @@ static NSMutableArray *uniqueList;
     return _projectList;
 }
 
-/*
-+(NSMutableSet *)getTaskListFromParseService:(NSString *)currentUser withProject:(NSString *)project;
+
++(NSMutableSet *)getTaskListFromParseService:(NSString *)currentUser withProject:(NSString *)project
 {
     PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
+    NSArray*  responseTaskListByProject =   [query findObjects];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        for (PFObject *person in objects){
-            
-            temp = [person objectForKey:@"project"];
-            
-            if (![_projectList containsObject:temp]) {
-                
-                [_projectList addObject:temp];
+    
+    NSMutableSet *taskListByProject = [NSMutableSet new];
+    if(responseTaskListByProject){
+        for (PFObject *person in responseTaskListByProject){
+            NSString *projectName = [person objectForKey:@"project"];
+            NSString *taskName = [person objectForKey:@"task"];
+            if([projectName isEqualToString:project] && taskName){
+                [taskListByProject addObject:taskName];
             }
         }
-        }];
-    NSLog(@"projects:%@",_projectListArray);
-    return _projectListArray;
-    return NuLL;
-}*/
+    }
+         
+    NSLog(@"projects:%@",taskListByProject);
+    return taskListByProject;
+}
 
 @end

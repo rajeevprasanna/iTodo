@@ -12,6 +12,6 @@
 +(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser;
 +(NSMutableArray *)getProjectListFromParseService:(NSString *)currentUser;
 
-//+(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser withProject:(NSString *)project;
++(NSMutableSet *)getTaskListFromParseService:(NSString *)currentUser withProject:(NSString *)project;
 
 @end
