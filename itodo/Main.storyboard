@@ -920,7 +920,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGg-CC-DDn">
                                                 <rect key="frame" x="10" y="10" width="35" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="E40FA0F8-DD1B-4E16-B199-D8F6EED1E53C" backgroundImage="check_mark">
+                                                <state key="normal" image="AA8F5A30-419D-4890-965E-E36592DB68BB" backgroundImage="check_mark">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -978,6 +978,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7zr-2Y-rlc"/>
                     <connections>
                         <outlet property="TableView" destination="cuF-Tt-Zi6" id="MIa-vy-JoG"/>
                         <outlet property="actionView" destination="j9k-1V-33i" id="cQq-Il-IGk"/>
@@ -986,7 +987,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHo-lQ-tKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="746"/>
+            <point key="canvasLocation" x="2389" y="746"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="RkG-cB-W2l">
@@ -1012,7 +1013,7 @@
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qfm-59-L1U" kind="modal" identifier="" id="7NW-9N-Qwi"/>
+                                    <segue destination="8FF-4w-MME" kind="modal" identifier="" id="7NW-9N-Qwi"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="s5E-Ij-MuR">
@@ -1198,7 +1199,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="okW-Pv-Kfq">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="okW-Pv-Kfq" id="oF3-Pb-OnY">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1227,11 +1228,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuu-bJ-Jp4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2519" y="816"/>
+            <point key="canvasLocation" x="3045" y="816"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pJ9-jH-bct">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8FF-4w-MME" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LhC-oT-Cod">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qfm-59-L1U" kind="relationship" relationship="rootViewController" id="nPr-89-ccU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HVT-eU-DdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1863" y="746"/>
         </scene>
     </scenes>
     <resources>
-        <image name="E40FA0F8-DD1B-4E16-B199-D8F6EED1E53C" width="256" height="256">
+        <image name="AA8F5A30-419D-4890-965E-E36592DB68BB" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3455,7 +3474,7 @@ AAAAAAAAAAAAAAAAAAICWA
     <inferredMetricsTieBreakers>
         <segue reference="SQh-5n-ywX"/>
         <segue reference="Zy3-sS-epM"/>
-        <segue reference="2lX-HZ-0lh"/>
+        <segue reference="UFn-Up-Ata"/>
         <segue reference="FWp-eg-gzu"/>
     </inferredMetricsTieBreakers>
 </document>
