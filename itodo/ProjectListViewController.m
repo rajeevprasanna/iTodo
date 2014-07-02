@@ -167,7 +167,7 @@
         _editStatusForRows[indexPath.row] = @YES;
     }
     
-    //self.actionView.hidden = [_editStatusForRows[indexPath.row] intValue];
+    self.actionView.hidden = [_editStatusForRows[indexPath.row] intValue];
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     self.projectName = selectedCell.textLabel.text;
@@ -225,7 +225,6 @@
             }
             }
     }];
-        sleep(0.05);
 
     [self viewDidAppear:YES];
 

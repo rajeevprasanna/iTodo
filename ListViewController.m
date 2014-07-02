@@ -169,27 +169,6 @@ long flag=0;
     NSLog(@"selected RowIndex is:%ld",(long)indexPath.row);
     _selectedRow = indexPath.row;
     
-//    flag=indexPath.row;
-//    if (flag==0) {
-//        NSLog(@"in if block");
-//        self.actionView.hidden=NO;
-//        NSLog(@"after call");
-//     }
-//    if (flag!=0 && flag==flag1)
-//    {
-//        self.actionView.hidden=YES;
-//    }
-//    if (flag!=flag1) {
-//        self.actionView.hidden=NO;
-//    }
-//    
-//    else{
-//        self.actionView.hidden=YES;
-//    }
-    //self.selectedRow=indexPath.row;
-    
-//    self.actionView.hidden = !self.actionView.hidden;
-    
     //for the first click, set the hide status to NO. for the next click, set its status to YES in array
     bool actionViewHideStatus = [_editStatusForRows[indexPath.row] intValue];
     if(actionViewHideStatus && actionViewHideStatus == YES){
