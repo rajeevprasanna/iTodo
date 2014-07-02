@@ -11,10 +11,9 @@
 @implementation ParseDataService
 
 static NSMutableArray * _taskList;
-static NSSet * _projectListSet;
+static NSMutableSet * _projectListSet;
 static NSMutableArray *_projectList;
-static NSString *temp;
-static NSArray *temp1;
+static NSMutableArray *uniqueList;
 
 +(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser
 {
@@ -29,20 +28,29 @@ static NSArray *temp1;
 //
     [query orderByAscending:@"priority"];
     _taskList = [[query findObjects] mutableCopy];
+  //  NSLog(@"list%@",_taskList[1]);
     return _taskList;
 }
 
-+(NSSet *)getProjectListFromParseServie:(NSString *)currentUser
++(NSMutableArray *)getProjectListFromParseService:(NSString *)currentUser;
 {
+    _projectList=[[NSMutableArray alloc]init];
+    
     PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
     [query selectKeys:@[@"project"]];
     _projectList=[[query findObjects]mutableCopy];
-   // NSLog(@"%@",[query["project"]);
-    temp1=[[NSSet setWithArray:_projectList]allObjects];
-    _projectListSet=temp1;
-   // NSLog(@"projects:%@",_projectList);
-    NSLog(@"projects in set:%@",temp1);
-    return _projectListSet;
+    
+    _projectListSet=[[NSMutableSet alloc]init];
+    for (PFObject *pobj in  _projectList) {
+        NSString *temp=[pobj objectForKey:@"project"];
+        [_projectListSet addObject:temp];
+        
+    }
+    _projectList=[[_projectListSet allObjects]mutableCopy];
+    
+    
+    //NSLog(@"projects in set:%@",_projectList);
+    return _projectList;
 }
 
 /*

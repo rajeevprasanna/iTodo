@@ -27,8 +27,7 @@
     NSMutableArray *_editStatusForRows;
 }
 @synthesize currentUser;
-//long flag=0,flag1=0;
-
+long flag=0;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,6 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSUserDefaults *userCredentials=[NSUserDefaults standardUserDefaults];
+    self.currentUser=[userCredentials objectForKey:@"username"];
     
     [self.TableView reloadData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
@@ -345,7 +347,13 @@
 
 
 - (IBAction)dropDownButton:(id)sender {
-    self.dropdownView.hidden=NO;
+    if (flag%2==0) {
+        self.dropdownView.hidden=NO;
+    }
+    else{
+        self.dropdownView.hidden=YES;
+    }
+    flag++;
 }
 
 
