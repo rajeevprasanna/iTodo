@@ -893,7 +893,7 @@
             </objects>
             <point key="canvasLocation" x="1863" y="-417"/>
         </scene>
-        <!--Project List View Controller-->
+        <!--Project List View Controller - Project List-->
         <scene sceneID="fpM-KL-yue">
             <objects>
                 <viewController id="qfm-59-L1U" customClass="ProjectListViewController" sceneMemberID="viewController">
@@ -920,7 +920,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGg-CC-DDn">
                                                 <rect key="frame" x="10" y="10" width="35" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="AA8F5A30-419D-4890-965E-E36592DB68BB" backgroundImage="check_mark">
+                                                <state key="normal" image="81B9A0E1-93DF-4658-82BE-1FA4C230DDE7" backgroundImage="check_mark">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -978,7 +978,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7zr-2Y-rlc"/>
+                    <navigationItem key="navigationItem" title="Project List" id="7zr-2Y-rlc">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="0hz-r5-gx0">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0zq-jz-mlW">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Tasks">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTasksList:" destination="qfm-59-L1U" eventType="touchUpInside" id="Z8h-yU-egy"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="TableView" destination="cuF-Tt-Zi6" id="MIa-vy-JoG"/>
                         <outlet property="actionView" destination="j9k-1V-33i" id="cQq-Il-IGk"/>
@@ -1250,7 +1264,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AA8F5A30-419D-4890-965E-E36592DB68BB" width="256" height="256">
+        <image name="81B9A0E1-93DF-4658-82BE-1FA4C230DDE7" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3472,9 +3486,9 @@ AAAAAAAAAAAAAAAAAAICWA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SQh-5n-ywX"/>
+        <segue reference="azj-Uy-QOP"/>
         <segue reference="Zy3-sS-epM"/>
-        <segue reference="UFn-Up-Ata"/>
+        <segue reference="2lX-HZ-0lh"/>
         <segue reference="FWp-eg-gzu"/>
     </inferredMetricsTieBreakers>
 </document>
