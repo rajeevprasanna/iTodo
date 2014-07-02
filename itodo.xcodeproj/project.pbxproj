@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		025210A9195C7E0E00FD6C55 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		02ABE96019647E6100E9786C /* ParseCronService.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ABE95F19647E6100E9786C /* ParseCronService.m */; };
+		02CB12CE1964848D004D44CF /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CB12CD1964848D004D44CF /* TaskListViewController.m */; };
 		F30B8920194130420069FCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B891F194130420069FCCE /* Foundation.framework */; };
 		F30B8922194130420069FCCE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8921194130420069FCCE /* CoreGraphics.framework */; };
 		F30B8924194130420069FCCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8923194130420069FCCE /* UIKit.framework */; };
@@ -76,10 +77,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		027215EC19646E4B00037BF1 /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
-		027215ED19646E4B00037BF1 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 		02ABE95E19647E6100E9786C /* ParseCronService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseCronService.h; sourceTree = "<group>"; };
 		02ABE95F19647E6100E9786C /* ParseCronService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseCronService.m; sourceTree = "<group>"; };
+		02CB12CC1964848D004D44CF /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
+		02CB12CD1964848D004D44CF /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 		F30B891C194130420069FCCE /* itodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30B891F194130420069FCCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F30B8921194130420069FCCE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -339,9 +340,9 @@
 				F397C8C719586663008D6518 /* UiViewController.m */,
 				F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */,
 				F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */,
+				02CB12CC1964848D004D44CF /* TaskListViewController.h */,
+				02CB12CD1964848D004D44CF /* TaskListViewController.m */,
 				F35C2F6F194FCE6B0060906E /* EditTaskViewController.h */,
-				027215EC19646E4B00037BF1 /* TaskListViewController.h */,
-				027215ED19646E4B00037BF1 /* TaskListViewController.m */,
 				F35C2F70194FCE6B0060906E /* EditTaskViewController.m */,
 				F3C37E86195A284400F63F85 /* AddProjectViewController.h */,
 				F3C37E87195A284400F63F85 /* AddProjectViewController.m */,
@@ -527,6 +528,7 @@
 				F35C2F7F1954EB1E0060906E /* GTMOAuth2SignIn.m in Sources */,
 				F39E2CA01946835600BD8AFE /* AddTaskViewController.m in Sources */,
 				F35C2F831954EB6A0060906E /* SBJSON.m in Sources */,
+				02CB12CE1964848D004D44CF /* TaskListViewController.m in Sources */,
 				F30B896619413AA80069FCCE /* RegisterViewController.m in Sources */,
 				F30B896919413B720069FCCE /* LoginViewController.m in Sources */,
 				F397C8C819586663008D6518 /* UiViewController.m in Sources */,
