@@ -7,16 +7,12 @@
 //
 
 #import "TaskListViewController.h"
-#import "ParseDataService.h"
 
-@interface TaskListViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface TaskListViewController ()
 
 @end
 
 @implementation TaskListViewController
-{
-    NSArray * _tasks;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,21 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSMutableSet *tasksSet  = [ParseDataService getTaskListFromParseService:self.userName withProject:self.projectName];
-    _tasks = [tasksSet allObjects];
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _tasks.count;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    UILabel *taskNameLabel = (id)[cell viewWithTag:100];
-    taskNameLabel.text = _tasks[indexPath.row];
-    return cell;
 }
 
 - (void)didReceiveMemoryWarning

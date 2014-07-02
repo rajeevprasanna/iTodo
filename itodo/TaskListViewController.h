@@ -10,7 +10,4 @@
 
 @interface TaskListViewController : UIViewController
 
-@property (strong, nonatomic) NSString *userName;
-@property (strong, nonatomic) NSString *projectName;
-
 @end
