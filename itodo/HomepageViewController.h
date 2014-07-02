@@ -12,6 +12,7 @@
 @interface HomepageViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (strong,nonatomic) NSString  *username1;
+@property (strong, nonatomic) NSString *currentUser;
 - (IBAction)move:(id)sender;
 
 @end

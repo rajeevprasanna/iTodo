@@ -11,7 +11,10 @@
 @interface ParseDataService : NSObject
 +(NSMutableArray *)getAlreadyLoadedTasks:(NSString *)currentUser;
 +(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser;
-+(NSMutableArray *)getProjectListFromParseServie:(NSString *)currentUser;
-//+(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser withProject:(NSString *)project;
+ 
++(NSMutableArray *)getProjectListFromParseService:(NSString *)currentUser;
+
++(NSMutableSet *)getTaskListFromParseService:(NSString *)currentUser withProject:(NSString *)project;
+ 
 
 @end

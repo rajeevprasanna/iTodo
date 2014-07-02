@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		025210A9195C7E0E00FD6C55 /* ParseCronService.m in Sources */ = {isa = PBXBuildFile; fileRef = 025210A8195C7E0E00FD6C55 /* ParseCronService.m */; };
+		025210A9195C7E0E00FD6C55 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		02ABE96019647E6100E9786C /* ParseCronService.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ABE95F19647E6100E9786C /* ParseCronService.m */; };
 		F30B8920194130420069FCCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B891F194130420069FCCE /* Foundation.framework */; };
 		F30B8922194130420069FCCE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8921194130420069FCCE /* CoreGraphics.framework */; };
 		F30B8924194130420069FCCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30B8923194130420069FCCE /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		F3BB6359195B370400596524 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3BB6358195B370400596524 /* MediaPlayer.framework */; };
 		F3C02379194D234700193322 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F359D5CA1943CEF500476661 /* QuartzCore.framework */; };
 		F3C37E88195A284400F63F85 /* AddProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C37E87195A284400F63F85 /* AddProjectViewController.m */; };
+		F3CEB781195CD0EF00A44A5B /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F3CEB780195CD0EF00A44A5B /* Settings.png */; };
+		F3CEB785195CDBE900A44A5B /* ProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CEB784195CDBE900A44A5B /* ProjectListViewController.m */; };
 		F3D127A4194155930034DDDD /* typing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A3194155930034DDDD /* typing@2x.png */; };
 		F3D127A61941CD0F0034DDDD /* button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A51941CD0F0034DDDD /* button_bg.png */; };
 		F3D127A81941D1DE0034DDDD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D127A71941D1DE0034DDDD /* Images.xcassets */; };
@@ -73,8 +76,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		025210A7195C7E0E00FD6C55 /* ParseCronService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseCronService.h; sourceTree = "<group>"; };
-		025210A8195C7E0E00FD6C55 /* ParseCronService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseCronService.m; sourceTree = "<group>"; };
+		027215EC19646E4B00037BF1 /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
+		027215ED19646E4B00037BF1 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
+		02ABE95E19647E6100E9786C /* ParseCronService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseCronService.h; sourceTree = "<group>"; };
+		02ABE95F19647E6100E9786C /* ParseCronService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseCronService.m; sourceTree = "<group>"; };
 		F30B891C194130420069FCCE /* itodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30B891F194130420069FCCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F30B8921194130420069FCCE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +145,9 @@
 		F3BB6358195B370400596524 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F3C37E86195A284400F63F85 /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectViewController.h; sourceTree = "<group>"; };
 		F3C37E87195A284400F63F85 /* AddProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectViewController.m; sourceTree = "<group>"; };
+		F3CEB780195CD0EF00A44A5B /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		F3CEB783195CDBE900A44A5B /* ProjectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectListViewController.h; sourceTree = "<group>"; };
+		F3CEB784195CDBE900A44A5B /* ProjectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectListViewController.m; sourceTree = "<group>"; };
 		F3D127A3194155930034DDDD /* typing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typing@2x.png"; sourceTree = "<group>"; };
 		F3D127A51941CD0F0034DDDD /* button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bg.png; sourceTree = "<group>"; };
 		F3D127A71941D1DE0034DDDD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -188,8 +196,8 @@
 		025210A3195C7DA600FD6C55 /* cron */ = {
 			isa = PBXGroup;
 			children = (
-				025210A7195C7E0E00FD6C55 /* ParseCronService.h */,
-				025210A8195C7E0E00FD6C55 /* ParseCronService.m */,
+				02ABE95E19647E6100E9786C /* ParseCronService.h */,
+				02ABE95F19647E6100E9786C /* ParseCronService.m */,
 			);
 			name = cron;
 			sourceTree = "<group>";
@@ -244,11 +252,12 @@
 				F397C8C919586A0A008D6518 /* services */,
 				F30B892E194130420069FCCE /* AppDelegate.h */,
 				F30B892F194130420069FCCE /* AppDelegate.m */,
-				F30B8934194130420069FCCE /* ViewController.h */,
 				F35C2F861954F4720060906E /* Main.storyboard */,
+				F30B8934194130420069FCCE /* ViewController.h */,
 				F30B8935194130420069FCCE /* ViewController.m */,
 				F30B896A19413D300069FCCE /* HomepageViewController.h */,
 				F30B896B19413D300069FCCE /* HomepageViewController.m */,
+				F3CEB782195CD79B00A44A5B /* Views */,
 				F3C0237D194D5EC500193322 /* Task Manipulation */,
 				F3D127AD1941E76D0034DDDD /* Registration */,
 				F3D127AE1941E77F0034DDDD /* Login */,
@@ -326,13 +335,13 @@
 		F3C0237D194D5EC500193322 /* Task Manipulation */ = {
 			isa = PBXGroup;
 			children = (
-				F35C2F69194F87410060906E /* ListViewController.h */,
-				F35C2F6A194F87410060906E /* ListViewController.m */,
 				F397C8C619586663008D6518 /* UiViewController.h */,
 				F397C8C719586663008D6518 /* UiViewController.m */,
 				F39E2C9E1946835600BD8AFE /* AddTaskViewController.h */,
 				F39E2C9F1946835600BD8AFE /* AddTaskViewController.m */,
 				F35C2F6F194FCE6B0060906E /* EditTaskViewController.h */,
+				027215EC19646E4B00037BF1 /* TaskListViewController.h */,
+				027215ED19646E4B00037BF1 /* TaskListViewController.m */,
 				F35C2F70194FCE6B0060906E /* EditTaskViewController.m */,
 				F3C37E86195A284400F63F85 /* AddProjectViewController.h */,
 				F3C37E87195A284400F63F85 /* AddProjectViewController.m */,
@@ -340,9 +349,21 @@
 			name = "Task Manipulation";
 			sourceTree = "<group>";
 		};
+		F3CEB782195CD79B00A44A5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F3CEB783195CDBE900A44A5B /* ProjectListViewController.h */,
+				F3CEB784195CDBE900A44A5B /* ProjectListViewController.m */,
+				F35C2F69194F87410060906E /* ListViewController.h */,
+				F35C2F6A194F87410060906E /* ListViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		F3D127A219414BC10034DDDD /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F3CEB780195CD0EF00A44A5B /* Settings.png */,
 				F3D127A51941CD0F0034DDDD /* button_bg.png */,
 				F3D127B1194214760034DDDD /* add_taks.png */,
 				F3D127A3194155930034DDDD /* typing@2x.png */,
@@ -424,6 +445,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = xenovus;
 				TargetAttributes = {
+					F30B891B194130420069FCCE = {
+						DevelopmentTeam = PE2YMT56XT;
+					};
 					F30B893C194130420069FCCE = {
 						TestTargetID = F30B891B194130420069FCCE;
 					};
@@ -467,6 +491,7 @@
 				F3D127A61941CD0F0034DDDD /* button_bg.png in Resources */,
 				F30B892A194130420069FCCE /* InfoPlist.strings in Resources */,
 				F30B8975194141CA0069FCCE /* default.png in Resources */,
+				F3CEB781195CD0EF00A44A5B /* Settings.png in Resources */,
 				F3D127B2194214760034DDDD /* add_taks.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,8 +514,10 @@
 				F35C2F801954EB1E0060906E /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				F35C2F6B194F87410060906E /* ListViewController.m in Sources */,
 				F30B896C19413D300069FCCE /* HomepageViewController.m in Sources */,
-				025210A9195C7E0E00FD6C55 /* ParseCronService.m in Sources */,
+				02ABE96019647E6100E9786C /* ParseCronService.m in Sources */,
+				025210A9195C7E0E00FD6C55 /* (null) in Sources */,
 				F397C8CC19586A36008D6518 /* ParseDataService.m in Sources */,
+				F3CEB785195CDBE900A44A5B /* ProjectListViewController.m in Sources */,
 				F30B8936194130420069FCCE /* ViewController.m in Sources */,
 				F3C37E88195A284400F63F85 /* AddProjectViewController.m in Sources */,
 				F30B8930194130420069FCCE /* AppDelegate.m in Sources */,
@@ -620,6 +647,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -628,6 +657,7 @@
 				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
 				INFOPLIST_FILE = "itodo/itodo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -637,6 +667,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -645,6 +677,7 @@
 				GCC_PREFIX_HEADER = "itodo/itodo-Prefix.pch";
 				INFOPLIST_FILE = "itodo/itodo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

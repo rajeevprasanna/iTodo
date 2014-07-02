@@ -11,8 +11,9 @@
 @implementation ParseDataService
 
 static NSMutableArray * _taskList;
-static NSSet * _projectListSet;
+static NSMutableSet * _projectListSet;
 static NSMutableArray *_projectList;
+ 
 static NSString *temp;
 static NSSet *temp1;
 
@@ -22,7 +23,9 @@ static NSSet *temp1;
         _taskList = [self getTaskListFromParseService:currentUser];
     }
     return _taskList;
-}
+} 
+static NSMutableArray *uniqueList;
+ 
 
 +(NSMutableArray *)getTaskListFromParseService:(NSString *)currentUser
 {
@@ -37,42 +40,52 @@ static NSSet *temp1;
 //
     [query orderByAscending:@"priority"];
     _taskList = [[query findObjects] mutableCopy];
+  //  NSLog(@"list%@",_taskList[1]);
     return _taskList;
 }
 
-+(NSSet *)getProjectListFromParseServie:(NSString *)currentUser
++(NSMutableArray *)getProjectListFromParseService:(NSString *)currentUser;
 {
+    _projectList=[[NSMutableArray alloc]init];
+    
     PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
     [query selectKeys:@[@"project"]];
     _projectList=[[query findObjects]mutableCopy];
-   // NSLog(@"%@",[query["project"]);
-    temp1=[NSSet setWithArray:_projectList];
-    _projectListSet=temp1;
-   // NSLog(@"projects:%@",_projectList);
-    NSLog(@"projects in set:%@",temp1);
-    return _projectListSet;
+ 
+    _projectListSet=[[NSMutableSet alloc]init];
+    for (PFObject *pobj in  _projectList) {
+        NSString *temp=[pobj objectForKey:@"project"];
+        [_projectListSet addObject:temp];
+        
+    }
+    _projectList=[[_projectListSet allObjects]mutableCopy];
+    
+    
+    //NSLog(@"projects in set:%@",_projectList);
+    return _projectList;
+
 }
 
-/*
-+(NSMutableSet *)getTaskListFromParseService:(NSString *)currentUser withProject:(NSString *)project;
+
++(NSMutableSet *)getTaskListFromParseService:(NSString *)currentUser withProject:(NSString *)project
 {
     PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
+    NSArray*  responseTaskListByProject =   [query findObjects];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        for (PFObject *person in objects){
-            
-            temp = [person objectForKey:@"project"];
-            
-            if (![_projectList containsObject:temp]) {
-                
-                [_projectList addObject:temp];
+    
+    NSMutableSet *taskListByProject = [NSMutableSet new];
+    if(responseTaskListByProject){
+        for (PFObject *person in responseTaskListByProject){
+            NSString *projectName = [person objectForKey:@"project"];
+            NSString *taskName = [person objectForKey:@"task"];
+            if([projectName isEqualToString:project] && taskName){
+                [taskListByProject addObject:taskName];
             }
         }
-        }];
-    NSLog(@"projects:%@",_projectListArray);
-    return _projectListArray;
-    return NuLL;
-}*/
+    }
+         
+    NSLog(@"projects:%@",taskListByProject);
+    return taskListByProject;
+}
 
 @end

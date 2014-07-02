@@ -14,6 +14,9 @@
 @end
 
 @implementation AddProjectViewController
+{
+    NSMutableArray *allProjects;
+}
 
 @synthesize projectList;
 @synthesize currentUser;
@@ -34,12 +37,15 @@
     // Do any additional setup after loading the view.
   //  self._currentUser=__currentUser;
     self.addTaskUnderProjectView.hidden=YES;
+    NSUserDefaults *userCredentials=[NSUserDefaults standardUserDefaults];
+    self.currentUser=[userCredentials objectForKey:@"username"];
+    
 
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDate:[NSDate date]];
     myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
     myPickerView.showsSelectionIndicator = YES;
-    self.priority.inputView = myPickerView;
+  //  self.projectNameTextField.inputView = myPickerView;
     
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.date setInputView:datePicker];
@@ -64,6 +70,8 @@
 
 - (IBAction)save:(id)sender {
     NSLog(@"PFUser name is %@",currentUser);
+    if(!(([self.task.text isEqual:@""])||([self.date.text isEqual:@""])||([self.priority.text isEqual:@""])||([self.projectNameTextField.text isEqual:@""])))
+    {
     
     PFObject *add=[[PFObject alloc]initWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
     [PFQuery clearAllCachedResults];
@@ -76,9 +84,23 @@
     [add  save];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
     ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
-    iv.currentUser=self.currentUser;
+    //iv.currentUser=self.currentUser;
     
     [self presentViewController:iv animated:YES completion:nil];
+    
+}
+    else{
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Error!" message:@"Some Field(s) are missing" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+
+-(void)getProjectListFromParseDataService
+{
+    allProjects=[[NSMutableArray alloc]init];
+    allProjects=[ParseDataService getProjectListFromParseService:currentUser];
+    NSLog(@"Projects are:%@",allProjects);
     
 }
 

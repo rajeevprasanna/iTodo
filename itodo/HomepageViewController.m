@@ -29,6 +29,9 @@
     [super viewDidLoad];
     
     self.username.text=username1;
+    NSUserDefaults *userCredentials=[NSUserDefaults standardUserDefaults];
+    self.currentUser=[userCredentials objectForKey:@"username"];
+    
     
 }
 

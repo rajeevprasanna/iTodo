@@ -9,11 +9,14 @@
 #import "EditTaskViewController.h"
 #import <Parse/Parse.h>
 #import "ListViewController.h"
+#import "ParseDataService.h"
 @interface EditTaskViewController ()
 
 @end
 
-@implementation EditTaskViewController
+@implementation EditTaskViewController{
+    NSArray *allProjects;
+}
 
 @synthesize objectId;
 @synthesize priorities;
@@ -37,7 +40,10 @@ int count=1;
     // Do any additional setup after loading the view.
     self.myPickerView.hidden=YES;
     self.priorityVIew.hidden=YES;
-    priorities = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
+    NSUserDefaults *userCredentials=[NSUserDefaults standardUserDefaults];
+    self.currentUser=[userCredentials objectForKey:@"username"];
+    [self getProjectListFromParseDataService];
+    
 
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDate:[NSDate date]];
@@ -46,7 +52,7 @@ int count=1;
     myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
     [myPickerView setDataSource: self];
     [myPickerView setDelegate: self];
-    self.priority.inputView = myPickerView;
+    self.projectTextField.inputView = myPickerView;
 
     
     if ([self.objectId isEqualToString:@"add"]) {
@@ -64,8 +70,9 @@ int count=1;
             self.dateTextField.text=date1;
             int pr=[[editTask objectForKey:@"priority"]intValue];
             NSString *priority1=[NSString stringWithFormat:@"%d",pr];
-            
             self.priority.text=priority1;
+            NSString *project=[editTask objectForKey:@"project"];
+            self.projectTextField.text=project;
             
             
         }];
@@ -106,7 +113,7 @@ int count=1;
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [priorities count];
+    return [allProjects count];
 }
 
 
@@ -118,16 +125,16 @@ int count=1;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [priorities objectAtIndex:row];
+    return [allProjects objectAtIndex:row];
 }
 
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     //Let's print in the console what the user had chosen;
-    NSString *num=[NSString stringWithFormat:@"%@",[priorities objectAtIndex:row] ];
-    self.priority.text=num;
-    NSLog(@"Chosen item: %@", [priorities objectAtIndex:row]);
+   // NSString *num=[NSString stringWithFormat:@"%@",[allProjects objectAtIndex:row] ];
+    self.projectTextField.text=[allProjects objectAtIndex:row];
+    NSLog(@"Chosen item: %@", [allProjects objectAtIndex:row]);
 }
 
 
@@ -139,6 +146,9 @@ int count=1;
 
 - (IBAction)EditTask:(id)sender {
     NSLog(@"UserName %@",currentUser);
+    if(!(([self.task.text isEqual:@""])||([self.dateTextField.text isEqual:@""])||([self.priority.text isEqual:@""])||([self.projectTextField.text isEqual:@""])))
+    {
+
     
      PFQuery *query = [PFQuery queryWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
     [PFQuery clearAllCachedResults];
@@ -151,12 +161,13 @@ int count=1;
         tasklist[@"task"] = self.task.text;
         tasklist[@"date"] = self.dateTextField.text;
         tasklist[@"priority"] = aNum;
+        tasklist[@"project"]=self.projectTextField.text;
         
         [tasklist saveInBackground];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
 
         ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
-          iv.currentUser=self.currentUser;
+         // iv.currentUser=self.currentUser;
         [self presentViewController:iv animated:YES completion:nil];
 
 
@@ -164,6 +175,11 @@ int count=1;
         
         
     }];
+    }
+    else {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Error!" message:@"Some Field(s) are missing" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     
 }
 
@@ -212,5 +228,16 @@ int count=1;
         editTask.currentUser=self.currentUser;
     
 }
+
+#pragma mark Getting Project Lists
+
+-(void)getProjectListFromParseDataService
+{
+    allProjects=[[NSMutableArray alloc]init];
+    allProjects=[ParseDataService getProjectListFromParseService:currentUser];
+    NSLog(@"Projects are:%@",allProjects);
+    
+}
+
 
 @end

@@ -15,6 +15,9 @@
 @end
 
 @implementation AddTaskViewController
+{
+    NSArray *allProjects;
+}
 @synthesize objectId;
 @synthesize myPickerView;
 @synthesize priorities;
@@ -26,7 +29,7 @@ int count1=1;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-       priorities = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
+      // priorities = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
     }
     return self;
 }
@@ -36,21 +39,27 @@ int count1=1;
     [super viewDidLoad];
     self.priorityView.hidden=YES;
     self.myPickerView.hidden=YES;
-    priorities = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
+    
+    [self getProjectListFromParseDataService];
+    
+    NSUserDefaults *userCredentials=[NSUserDefaults standardUserDefaults];
+    self.currentUser=[userCredentials objectForKey:@"username"];
     NSLog(@"Username is %@",currentUser);
     
     // Do any additional setup after loading the view.
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYYY MM d"];
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDate:[NSDate date]];
-    myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
+    myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0,0,0,0)];
     [myPickerView setDataSource: self];
     [myPickerView setDelegate: self];
     myPickerView.showsSelectionIndicator = YES;
-    self.priority.inputView = myPickerView;
+    self.projectTextField.inputView = myPickerView;
     
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     [self.dateTextField setInputView:datePicker];
-    [self projectList];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +77,7 @@ int count1=1;
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+/*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
@@ -75,7 +85,7 @@ int count1=1;
     ListViewController *addTask = segue.destinationViewController;
     if([segue.identifier isEqualToString:@"addCancel"])
     addTask.currentUser=self.currentUser;
-}
+}*/
 
 
 #pragma mark - pickerView dataSource
@@ -87,7 +97,7 @@ int count1=1;
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [priorities count];
+    return [allProjects count];
 }
 
 
@@ -99,16 +109,16 @@ int count1=1;
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [priorities objectAtIndex:row];
+    return [allProjects objectAtIndex:row];
 }
 
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     //Let's print in the console what the user had chosen;
-    NSString *num=[NSString stringWithFormat:@"%@",[priorities objectAtIndex:row] ];
-    self.priority.text=num;
-    NSLog(@"Chosen item: %@", [priorities objectAtIndex:row]);
+    NSString *num=[NSString stringWithFormat:@"%@",[allProjects objectAtIndex:row] ];
+    self.projectTextField.text=num;
+    NSLog(@"Chosen item: %@", [allProjects objectAtIndex:row]);
 }
 
 
@@ -116,23 +126,33 @@ int count1=1;
 
 
 - (IBAction)save:(id)sender {
-    NSLog(@"PFUser name is %@",currentUser);
     
+    if(!(([self.task.text isEqual:@""])||([self.dateTextField.text isEqual:@""])||([self.priority.text isEqual:@""])||([self.projectTextField.text isEqual:@""])))
+    {
+        
     PFObject *add=[[PFObject alloc]initWithClassName:[NSString stringWithFormat:@"TaskList%@",currentUser]];
     [PFQuery clearAllCachedResults];
     NSNumber  *aNum = [NSNumber numberWithInteger: [self.priority.text integerValue]];
 
-   // [add setObject: forKey:<#(NSString *)#>]
     [add setObject:_task.text forKey:@"task"];
     [add setObject:_dateTextField.text  forKey:@"date"];
     [add setObject:aNum forKey:@"priority"];
+    [add setObject:_projectTextField.text forKey:@"project"];
     [add  save];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
     ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
-    iv.currentUser=self.currentUser;
+    //iv.currentUser=self.currentUser;
 
     [self presentViewController:iv animated:YES completion:nil];
+    }
+    else{
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Error!" message:@"Some Field(s) are missing" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
+
 }
+
 
 
 
@@ -176,10 +196,19 @@ int count1=1;
 }
 
 #pragma mark - getting Project list
--(void)projectList
+-(void)getProjectListFromParseDataService
 {
-    NSArray *projectArray=[ParseDataService getProjectListFromParseServie:currentUser];
-    NSLog(@"Projects are:%@",projectArray);
+     allProjects=[[NSMutableArray alloc]init];
+   allProjects=[ParseDataService getProjectListFromParseService:currentUser];
+    NSLog(@"Projects are:%@",allProjects);
+   
 }
+
+  //  for (int i=0; i<[allProjects count]; i++) {
+
+  //  }
+    
+
+
 
 @end

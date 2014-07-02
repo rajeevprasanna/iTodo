@@ -56,9 +56,13 @@
     [PFUser logInWithUsernameInBackground:self.userTextField.text password:self.passwordTextField.text block:^(PFUser *user, NSError *error){
         if (!error)
         {
+            NSUserDefaults *userCredentials=[NSUserDefaults standardUserDefaults];
+            [userCredentials setObject:self.userTextField.text forKey:@"username"];
+            [userCredentials setObject:self.passwordTextField.text forKey:@"password"];
+            [userCredentials synchronize];
             ListViewController *iv=[self.storyboard instantiateViewControllerWithIdentifier:@"ListViewController"];
             [ParseDataService getTaskListFromParseService: self.userTextField.text];
-            iv.currentUser=self.userTextField.text;
+           // iv.currentUser=self.userTextField.text;
             [self presentViewController:iv animated:YES completion:nil];
             
             //set user name in cron service

@@ -13,6 +13,8 @@
 #import "ViewController.h"
 #import "ParseDataService.h"
 #import "AddProjectViewController.h"
+
+
 @interface ListViewController ()
 @property (strong, nonatomic) IBOutlet UIView *actionView;
 @property NSString *objectID;
@@ -27,8 +29,7 @@
     NSMutableArray *_editStatusForRows;
 }
 @synthesize currentUser;
-//long flag=0,flag1=0;
-
+long flag=0;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,6 +42,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSUserDefaults *userCredentials=[NSUserDefaults standardUserDefaults];
+    self.currentUser=[userCredentials objectForKey:@"username"];
     
     [self.TableView reloadData];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshTable" object:self];
@@ -166,27 +170,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"selected RowIndex is:%ld",(long)indexPath.row);
     _selectedRow = indexPath.row;
-    
-//    flag=indexPath.row;
-//    if (flag==0) {
-//        NSLog(@"in if block");
-//        self.actionView.hidden=NO;
-//        NSLog(@"after call");
-//     }
-//    if (flag!=0 && flag==flag1)
-//    {
-//        self.actionView.hidden=YES;
-//    }
-//    if (flag!=flag1) {
-//        self.actionView.hidden=NO;
-//    }
-//    
-//    else{
-//        self.actionView.hidden=YES;
-//    }
-    //self.selectedRow=indexPath.row;
-    
-//    self.actionView.hidden = !self.actionView.hidden;
     
     //for the first click, set the hide status to NO. for the next click, set its status to YES in array
     bool actionViewHideStatus = [_editStatusForRows[indexPath.row] intValue];
@@ -318,15 +301,14 @@
         editTask.objectId=self.objectID;
         editTask.currentUser=self.currentUser;
        // UIAlertView *alert=[[UITableView alloc]initwith]
-    }
+    }else
     if ([segue.identifier isEqualToString:(@"addTask")]) {
         AddTaskViewController *at=segue.destinationViewController;
         at.currentUser=self.currentUser;
-    }
+    }else
     if ([segue.identifier isEqualToString:@"addProject"]) {
         AddProjectViewController *adprjct=segue.destinationViewController;
         adprjct.currentUser=self.currentUser;
-        
     }
 }
 
@@ -343,7 +325,13 @@
 
 
 - (IBAction)dropDownButton:(id)sender {
-    self.dropdownView.hidden=NO;
+    if (flag%2==0) {
+        self.dropdownView.hidden=NO;
+    }
+    else{
+        self.dropdownView.hidden=YES;
+    }
+    flag++;
 }
 
 

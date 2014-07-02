@@ -10,8 +10,8 @@
 
 @interface AddProjectViewController : UIViewController
 @property (strong,nonatomic) NSString *currentUser;
-@property (strong, nonatomic) IBOutlet UITextField *projectNameTextField;
 @property (strong, nonatomic) NSMutableArray *projectList;
+@property (strong, nonatomic) IBOutlet UILabel *projectNameTextField;
 - (IBAction)addProjectButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *addTaskUnderProjectView;
 @property (strong, nonatomic) IBOutlet UITextField *task;
