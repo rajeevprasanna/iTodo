@@ -14,5 +14,6 @@
 @property (strong,nonatomic) NSString  *username1;
 @property (strong, nonatomic) NSString *currentUser;
 - (IBAction)move:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *logoutView;
 
 @end

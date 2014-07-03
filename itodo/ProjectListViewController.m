@@ -130,7 +130,7 @@
    // cell.textLabel.text=[listData objectAtIndex:indexPath.row];
     
     UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [UIColor redColor];
+    bgColorView.backgroundColor = [UIColor grayColor];
     [cell setSelectedBackgroundView:bgColorView];
     
     return cell;

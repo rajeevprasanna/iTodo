@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.logoutView.hidden=YES;
     
     self.username.text=username1;
     NSUserDefaults *userCredentials=[NSUserDefaults standardUserDefaults];
@@ -67,6 +68,9 @@
 
 }
 
+- (IBAction)menuButton:(id)sender {
+    self.logoutView.hidden=NO;
+}
 
 
 @end
