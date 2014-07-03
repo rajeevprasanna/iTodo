@@ -118,6 +118,15 @@
 */
 
 - (IBAction)addProjectButton:(id)sender {
+    if ([self.projectNameTextField.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Error!" message:@"Please enter the project name" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    else{
     self.addTaskUnderProjectView.hidden=NO;
+        self.CancelButtonVIew.hidden=YES;
+    }
 }
+
 @end

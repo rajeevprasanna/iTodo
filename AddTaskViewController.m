@@ -47,8 +47,8 @@ int count1=1;
     NSLog(@"Username is %@",currentUser);
     
     // Do any additional setup after loading the view.
-    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"YYYY MM d"];
+//    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+//    [formatter setDateFormat:@"YYYY MM d"];
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDate:[NSDate date]];
     myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0,0,0,0)];
