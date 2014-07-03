@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *date;
 @property (strong, nonatomic) IBOutlet UITextField *priority;
 @property (strong, nonatomic) IBOutlet UIButton *addTaskButton;
+@property (strong, nonatomic) IBOutlet UIView *CancelButtonVIew;
 @property (strong, nonatomic) IBOutlet  UIPickerView *myPickerView;
-
 
 @end

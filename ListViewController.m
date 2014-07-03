@@ -147,6 +147,9 @@ long flag=0;
 }
 
 
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" ]; //forIndexPath:indexPath];
@@ -154,13 +157,40 @@ long flag=0;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"] ;
     }
     // Configure the cell...
+    cell.textLabel.textColor=[UIColor blackColor];
+    cell.detailTextLabel.textColor=[UIColor blackColor];
+    [[cell textLabel] setNumberOfLines:0]; // unlimited number of lines
+    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    [cell.textLabel sizeToFit];
+
     
     PFObject *listData=[self.list objectAtIndex:indexPath.row];
     cell.textLabel.text=listData[@"task"];
+        if ([listData[@"priority"] isEqualToValue:@1]) {
+            
+            cell.backgroundColor=[UIColor colorWithRed:223.0f/255.0f green:33.0f/255.0f blue:37.0f/255.0f alpha:1.0f];
+        }
+        else if([listData[@"priority"] isEqualToValue:@2])
+        {
+            cell.backgroundColor=[UIColor colorWithRed:240.0f/255.0f green:105.0f/255.0f blue:55.0f/255.0f alpha:1.0f];
+        }
+        else if ([listData[@"priority"] isEqualToValue:@3]){
+            
+            cell.backgroundColor=[UIColor colorWithRed:245.0f/255.0f green:159.0f/255.0f blue:22.0f/255.0f alpha:1.0f];
+        }
+        else if ([listData[@"priority"] isEqualToValue:@4]){
+            cell.backgroundColor=[UIColor colorWithRed:236.0f/255.0f green:200.0f/255.0f blue:81.0f/255.0f alpha:1.0f];
+        }
+        else{
+            cell.backgroundColor=[UIColor colorWithRed:137.0f/255.0f green:166.0f/255.0f blue:70.0f/255.0f alpha:1.0f];
+        }
+
+    
     
     cell.detailTextLabel.text=[NSString stringWithFormat:@"%@:%@",listData[@"project"],listData[@"priority"]];
+    
     UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [UIColor redColor];
+  //  bgColorView.backgroundColor = [UIColor redColor];
     [cell setSelectedBackgroundView:bgColorView];
     
     return cell;
@@ -199,10 +229,10 @@ long flag=0;
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if([_editStatusForRows[indexPath.row] intValue] == 1){
-        cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
+        //cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
     }
     else{
-       cell.selectedBackgroundView.backgroundColor = [UIColor blueColor];
+       //cell.selectedBackgroundView.backgroundColor = [UIColor blueColor];
     }
 }
 
